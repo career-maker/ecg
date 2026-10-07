@@ -349,7 +349,7 @@ if (!reduce) {
   $$(".eyebrow").forEach((el) => inView(el, () => el.classList.add("is-in"), { amount: 1 }));
 
   // images wipe open with a settling zoom
-  $$(".about__img, .join__img, .post__img").forEach((box) => {
+  $$(".about__img, .join__img").forEach((box) => {
     const img = $("img", box);
     // observe the parent: IntersectionObserver ignores a fully clipped target
     inView(

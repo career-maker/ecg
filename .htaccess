@@ -1,0 +1,4 @@
+
+# Block search engines (staging)
+Header set X-Robots-Tag "noindex, nofollow, noarchive"
+RedirectMatch 404 /\.git
