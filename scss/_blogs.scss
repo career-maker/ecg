@@ -130,9 +130,9 @@
   @include up(md) {
     flex-basis: calc((100% - #{fluid(16, 24)}) / 2);
   }
-  // four cards in a row on every desktop width
+  // three cards in a row on every desktop width
   @include up(lg) {
-    flex-basis: calc((100% - 3 * #{fluid(16, 24)}) / 4);
+    flex-basis: calc((100% - 2 * #{fluid(16, 24)}) / 3);
   }
   > .post {
     height: 100%;

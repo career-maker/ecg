@@ -155,9 +155,85 @@
   }
 
   &__media {
+    position: relative;
     margin: 0;
     padding: fluid(8, 24);
     min-width: 0;
+  }
+
+  // ---- decorative shapes from the design ----
+  // world-map style dot field, top right
+  &__map {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: min(46%, 520px);
+    height: 70%;
+    background-image: radial-gradient(circle, rgba($blue-600, 0.2) 1.6px, transparent 2px);
+    background-size: 14px 14px;
+    -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 72%);
+    mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 72%);
+    pointer-events: none;
+  }
+  // large pale diagonal wedge behind the copy
+  &__swoosh {
+    position: absolute;
+    z-index: -1;
+    right: -8%;
+    bottom: -35%;
+    width: 70%;
+    height: 90%;
+    background: linear-gradient(135deg, rgba(#fff, 0.9), rgba($blue-100, 0.4));
+    clip-path: polygon(30% 0, 100% 40%, 100% 100%, 0 100%);
+    pointer-events: none;
+  }
+  // blue dot grid bottom-left of the artwork
+  &__dots {
+    position: absolute;
+    left: 14%;
+    bottom: 2%;
+    width: 22%;
+    aspect-ratio: 3 / 1;
+    background-image: radial-gradient(circle, $blue-600 2px, transparent 2.5px);
+    background-size: 16px 16px;
+    opacity: 0.55;
+    pointer-events: none;
+    @include down(md) {
+      display: none;
+    }
+  }
+  // floating icon chips
+  &__chip {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: clamp(44px, 6vw, 72px);
+    height: clamp(44px, 6vw, 72px);
+    border-radius: 18px;
+    box-shadow: 0 18px 32px -14px rgba($navy-900, 0.45);
+    svg {
+      width: 52%;
+      height: 52%;
+    }
+    &--people {
+      left: 2%;
+      top: 42%;
+      background: #fff;
+      color: $navy-900;
+    }
+    &--case {
+      right: 4%;
+      top: 34%;
+      background: $gold;
+      color: $navy-900;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      animation: chip-float 6s ease-in-out infinite;
+      &--case {
+        animation-delay: -3s;
+      }
+    }
   }
   &__collage {
     width: 100%;
@@ -199,5 +275,11 @@
     max-width: 38ch;
     font-size: fluid(16, 19);
     color: $muted;
+  }
+}
+
+@keyframes chip-float {
+  50% {
+    transform: translateY(-8px);
   }
 }

@@ -43,6 +43,7 @@
       <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol>
       <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
       <symbol id="i-report" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.6l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9L12 2.8Z"/></symbol>
       <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
       <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
       <symbol id="i-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></symbol>
@@ -469,8 +470,13 @@
 
       <div class="container join" id="careers">
         <div class="join__card" data-reveal>
+          <span class="join__map" aria-hidden="true"></span>
+          <span class="join__swoosh" aria-hidden="true"></span>
           <figure class="join__media">
             <img class="join__collage" src="assets/img/photos/join-collage.png" alt="Two colleagues in blue overalls checking a tablet and laptop beside an open car engine" width="1536" height="1024" loading="lazy">
+            <span class="join__chip join__chip--people" aria-hidden="true"><svg><use href="#i-team"/></svg></span>
+            <span class="join__chip join__chip--case" aria-hidden="true"><svg><use href="#i-briefcase"/></svg></span>
+            <span class="join__dots" aria-hidden="true"></span>
           </figure>
           <div class="join__copy">
             <p class="eyebrow">Join Our Team</p>
@@ -483,45 +489,71 @@
     </section>
 
     <!-- ============ SUCCESS STORIES ============ -->
-    <section class="stories section--blue section" id="stories" aria-labelledby="stories-title">
+    <section class="stories section--light section" id="stories" aria-labelledby="stories-title">
       <span class="wm " aria-hidden="true">Stories</span>
       <div class="container">
         <div class="section-head">
           <div class="section-head__text" data-reveal>
             <p class="eyebrow">Success Stories</p>
-            <h2 class="h2 mark" id="stories-title">What Our Clients Have to Say</h2>
+            <h2 class="h2 mark" id="stories-title">What Our Clients Have to <span class="story__accent">Say</span></h2>
           </div>
         </div>
 
         <div class="story" data-stories data-reveal>
           <div class="story__stage" aria-live="polite">
-            <svg class="story__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+            <span class="story__shape story__shape--gold" aria-hidden="true"></span>
+            <span class="story__shape story__shape--blue" aria-hidden="true"></span>
+            <span class="story__dots" aria-hidden="true"></span>
             <figure class="story__slide is-active" data-story-slide>
-              <blockquote class="story__quote"><p>Working with this team has completely transformed our supply chain operations. Their expertise in procurement and logistics not only reduced our costs but also improved efficiency across the board. We now have a reliable partner who understands our business needs and delivers beyond expectations.</p></blockquote>
-              <figcaption class="story__who"><img src="assets/img/photos/t-james.jpg" alt="" width="56" height="56" loading="lazy"><span><cite class="story__name">James W</cite><span class="story__role">Supply Chain Director, Europe</span></span></figcaption>
+              <div class="story__photo"><img src="assets/img/photos/story-1.jpg" alt="Portrait of James W" width="720" height="900" loading="lazy"></div>
+              <div class="story__card">
+                <span class="story__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+                <svg class="story__open" aria-hidden="true"><use href="#i-quote"/></svg>
+                <blockquote class="story__quote"><p>Working with this team has completely transformed our supply chain operations. Their expertise in procurement and logistics not only reduced our costs but also improved efficiency across the board. We now have a reliable partner who understands our business needs and delivers beyond expectations.</p></blockquote>
+                <figcaption class="story__who"><cite class="story__name">James W</cite><span class="story__role">Supply Chain Director, Europe</span></figcaption>
+                <svg class="story__close" aria-hidden="true"><use href="#i-quote"/></svg>
+              </div>
             </figure>
             <figure class="story__slide" data-story-slide>
-              <blockquote class="story__quote"><p>The professionalism, transparency, and innovative solutions they provide have been game changers for our company. From procurement to global distribution, their support has helped us scale with confidence.</p></blockquote>
-              <figcaption class="story__who"><img src="assets/img/photos/t-aisha.jpg" alt="" width="56" height="56" loading="lazy"><span><cite class="story__name">Aisha K</cite><span class="story__role">Operations Manager, Middle East</span></span></figcaption>
+              <div class="story__photo"><img src="assets/img/photos/story-2.jpg" alt="Portrait of Aisha K" width="720" height="900" loading="lazy"></div>
+              <div class="story__card">
+                <span class="story__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+                <svg class="story__open" aria-hidden="true"><use href="#i-quote"/></svg>
+                <blockquote class="story__quote"><p>The professionalism, transparency, and innovative solutions they provide have been game changers for our company. From procurement to global distribution, their support has helped us scale with confidence.</p></blockquote>
+                <figcaption class="story__who"><cite class="story__name">Aisha K</cite><span class="story__role">Operations Manager, Middle East</span></figcaption>
+                <svg class="story__close" aria-hidden="true"><use href="#i-quote"/></svg>
+              </div>
             </figure>
             <figure class="story__slide" data-story-slide>
-              <blockquote class="story__quote"><p>Working with this team has completely transformed our supply chain operations. Their expertise in procurement and logistics not only reduced our costs but also improved efficiency across the board. We now have a reliable partner who understands our business needs and delivers beyond expectations.</p></blockquote>
-              <figcaption class="story__who"><img src="assets/img/photos/t-james2.jpg" alt="" width="56" height="56" loading="lazy"><span><cite class="story__name">James W</cite><span class="story__role">Supply Chain Director, Europe</span></span></figcaption>
+              <div class="story__photo"><img src="assets/img/photos/story-3.jpg" alt="Portrait of James W" width="720" height="900" loading="lazy"></div>
+              <div class="story__card">
+                <span class="story__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+                <svg class="story__open" aria-hidden="true"><use href="#i-quote"/></svg>
+                <blockquote class="story__quote"><p>Working with this team has completely transformed our supply chain operations. Their expertise in procurement and logistics not only reduced our costs but also improved efficiency across the board. We now have a reliable partner who understands our business needs and delivers beyond expectations.</p></blockquote>
+                <figcaption class="story__who"><cite class="story__name">James W</cite><span class="story__role">Supply Chain Director, Europe</span></figcaption>
+                <svg class="story__close" aria-hidden="true"><use href="#i-quote"/></svg>
+              </div>
             </figure>
             <figure class="story__slide" data-story-slide>
-              <blockquote class="story__quote"><p>Partnering with them has been one of the best strategic decisions we’ve made. Their ability to deliver consistent quality, adapt to changing market demands, and provide innovative supply chain solutions has had a direct impact on our growth. Beyond just being a service provider, they’ve become a trusted partner who truly cares about our success.</p></blockquote>
-              <figcaption class="story__who"><img src="assets/img/photos/t-daniel.jpg" alt="" width="56" height="56" loading="lazy"><span><cite class="story__name">Daniel R</cite><span class="story__role">CEO, North America</span></span></figcaption>
+              <div class="story__photo"><img src="assets/img/photos/story-4.jpg" alt="Portrait of Daniel R" width="720" height="900" loading="lazy"></div>
+              <div class="story__card">
+                <span class="story__stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+                <svg class="story__open" aria-hidden="true"><use href="#i-quote"/></svg>
+                <blockquote class="story__quote"><p>Partnering with them has been one of the best strategic decisions we’ve made. Their ability to deliver consistent quality, adapt to changing market demands, and provide innovative supply chain solutions has had a direct impact on our growth. Beyond just being a service provider, they’ve become a trusted partner who truly cares about our success.</p></blockquote>
+                <figcaption class="story__who"><cite class="story__name">Daniel R</cite><span class="story__role">CEO, North America</span></figcaption>
+                <svg class="story__close" aria-hidden="true"><use href="#i-quote"/></svg>
+              </div>
             </figure>
             <div class="story__controls">
-              <button class="icon-btn" type="button" data-story-prev aria-label="Previous testimonial"><svg aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
-              <button class="icon-btn" type="button" data-story-next aria-label="Next testimonial"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              <button class="story-arrow" type="button" data-story-prev aria-label="Previous testimonial"><svg aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+              <button class="story-arrow story-arrow--solid" type="button" data-story-next aria-label="Next testimonial"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
             </div>
           </div>
           <ul class="story__tabs" role="list">
-            <li><button class="story__tab is-active" type="button" data-story-tab aria-pressed="true"><img src="assets/img/photos/t-james.jpg" alt="" width="48" height="48" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">James W</span><span class="story__tab-role">Supply Chain Director, Europe</span></span><span class="story__bar" aria-hidden="true"></span></button></li>
-            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/t-aisha.jpg" alt="" width="48" height="48" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">Aisha K</span><span class="story__tab-role">Operations Manager, Middle East</span></span><span class="story__bar" aria-hidden="true"></span></button></li>
-            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/t-james2.jpg" alt="" width="48" height="48" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">James W</span><span class="story__tab-role">Supply Chain Director, Europe</span></span><span class="story__bar" aria-hidden="true"></span></button></li>
-            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/t-daniel.jpg" alt="" width="48" height="48" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">Daniel R</span><span class="story__tab-role">CEO, North America</span></span><span class="story__bar" aria-hidden="true"></span></button></li>
+            <li><button class="story__tab is-active" type="button" data-story-tab aria-pressed="true"><img src="assets/img/photos/story-1-sm.jpg" alt="" width="60" height="60" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">James W</span><span class="story__tab-role">Supply Chain Director, Europe</span></span><svg class="story__tab-quote" aria-hidden="true"><use href="#i-quote"/></svg><span class="story__bar" aria-hidden="true"></span></button></li>
+            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/story-2-sm.jpg" alt="" width="60" height="60" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">Aisha K</span><span class="story__tab-role">Operations Manager, Middle East</span></span><svg class="story__tab-quote" aria-hidden="true"><use href="#i-quote"/></svg><span class="story__bar" aria-hidden="true"></span></button></li>
+            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/story-3-sm.jpg" alt="" width="60" height="60" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">James W</span><span class="story__tab-role">Supply Chain Director, Europe</span></span><svg class="story__tab-quote" aria-hidden="true"><use href="#i-quote"/></svg><span class="story__bar" aria-hidden="true"></span></button></li>
+            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/story-4-sm.jpg" alt="" width="60" height="60" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">Daniel R</span><span class="story__tab-role">CEO, North America</span></span><svg class="story__tab-quote" aria-hidden="true"><use href="#i-quote"/></svg><span class="story__bar" aria-hidden="true"></span></button></li>
           </ul>
         </div>
       </div>

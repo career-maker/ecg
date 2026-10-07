@@ -7,6 +7,10 @@
   background: #fff;
 }
 
+.section--light {
+  background: linear-gradient(180deg, #f3f7ff 0%, #fff 100%);
+}
+
 .section--sky {
   background: $sky;
 }
@@ -40,6 +44,7 @@
 }
 
 .section--white,
+.section--light,
 .section--sky,
 .section--blue,
 .footer {
