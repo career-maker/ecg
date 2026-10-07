@@ -1,0 +1,292 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.footer {
+  background: $navy-900;
+  color: rgba(#fff, 0.78);
+
+  &__main {
+    display: grid;
+    gap: fluid(32, 64) space(7);
+    padding-block: fluid(40, 72) fluid(32, 48);
+    grid-template-columns: minmax(0, 1fr);
+    @include up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @include up(lg) {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 1.1fr);
+    }
+  }
+
+  &__brand {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: space(5);
+    @include up(md) {
+      grid-column: 1 / -1;
+      grid-template-columns: minmax(0, 1fr);
+    }
+    @include up(lg) {
+      grid-column: auto;
+    }
+    img {
+      width: auto;
+      height: 48px;
+    }
+    p {
+      max-width: 36ch;
+      font-size: 0.9375rem;
+    }
+  }
+
+  h3 {
+    margin-bottom: space(5);
+    @include eyebrow;
+    font-size: 0.8125rem;
+    color: #fff;
+    font-family: $font-body;
+  }
+
+  &__list {
+    display: grid;
+    gap: space(1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      font-size: 0.9375rem;
+      color: rgba(#fff, 0.78);
+      transition: color $dur-fast ease, transform $dur $ease-out;
+      @include focus-ring($yellow);
+      &:hover {
+        color: #fff;
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  address {
+    font-style: normal;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  &__contact {
+    display: grid;
+    align-content: start;
+    gap: space(6);
+    a {
+      color: #fff;
+      &:hover {
+        color: $yellow;
+      }
+      @include focus-ring($yellow);
+    }
+  }
+
+  &__follow {
+    display: grid;
+    gap: space(3);
+    margin-top: space(3);
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: space(3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    a {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(#fff, 0.35);
+      border-radius: 50%;
+      color: #fff;
+      transition: background-color $dur-fast ease, color $dur-fast ease,
+        border-color $dur-fast ease;
+      @include focus-ring($yellow);
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+      &:hover {
+        background: $yellow;
+        border-color: $yellow;
+        color: $navy-900;
+      }
+    }
+  }
+
+  &__brands {
+    background: #fff;
+    color: $navy-900;
+    padding-block: fluid(24, 40);
+    .brands {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  &__legal {
+    background: #040d22;
+    font-size: 0.8125rem;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: space(2) space(5);
+      padding-block: space(5);
+    }
+    p {
+      margin: 0;
+    }
+    img {
+      display: inline-block;
+      width: auto;
+      height: 19px;
+      vertical-align: middle;
+      margin-left: space(2);
+    }
+    a {
+      display: inline-block;
+      @include focus-ring($yellow);
+    }
+  }
+
+  // ---- brand marquee ----
+  .brands--marquee {
+    @include up(lg) {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: space(7);
+    }
+  }
+}
+
+.marquee {
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+
+  &__track {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+    &:hover,
+    &:focus-within {
+      animation-play-state: paused;
+    }
+  }
+
+  // two identical sets; the track slides exactly one set for a seamless loop
+  &__set {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: space(9);
+    margin: 0 space(9) 0 0;
+    list-style: none;
+  }
+
+  &__item {
+    flex: none;
+    img {
+      display: block;
+      width: auto;
+      height: 52px;
+      max-width: 180px;
+      object-fit: contain;
+      filter: grayscale(1) contrast(1.05);
+      opacity: 0.75;
+      transition: filter $dur ease, opacity $dur ease;
+    }
+    &:hover img {
+      filter: none;
+      opacity: 1;
+    }
+  }
+
+  @include reduced-motion {
+    -webkit-mask-image: none;
+    mask-image: none;
+    &__track {
+      width: auto;
+      animation: none;
+    }
+    &__set {
+      flex-wrap: wrap;
+      gap: space(5) space(7);
+      margin-right: 0;
+      &[aria-hidden="true"] {
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+// ---- expandable link groups (accordion on mobile, always open from md up) ----
+.fold {
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: space(4);
+    list-style: none;
+    cursor: pointer;
+    &::-webkit-details-marker {
+      display: none;
+    }
+    @include focus-ring($yellow);
+
+    h3 {
+      margin: 0;
+    }
+  }
+  &__chev {
+    width: 16px;
+    height: 16px;
+    color: #fff;
+    transition: transform $dur $ease-out;
+  }
+  &[open] &__chev {
+    transform: rotate(180deg);
+  }
+
+  @include down(md) {
+    border-bottom: 1px solid rgba(#fff, 0.16);
+    &__head {
+      min-height: 56px;
+    }
+    .footer__list {
+      padding-bottom: space(4);
+    }
+  }
+  @include up(md) {
+    &__head {
+      cursor: default;
+      pointer-events: none;
+      margin-bottom: space(5);
+    }
+    &__chev {
+      display: none;
+    }
+  }
+}

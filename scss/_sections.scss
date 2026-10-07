@@ -1,0 +1,97 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Alternating section backgrounds: white, light blue, brand blue.
+// Each section also carries a large, faded watermark word behind its content.
+.section--white {
+  background: #fff;
+}
+
+.section--sky {
+  background: $sky;
+}
+
+.section--blue {
+  background: linear-gradient(160deg, $blue-600 0%, $blue-700 100%);
+  color: #fff;
+
+  .eyebrow {
+    color: $gold;
+  }
+  h2,
+  h3 {
+    color: #fff;
+  }
+  .mark::after {
+    background: linear-gradient(135deg, #fff 50%, $gold 50%);
+  }
+  .industries__intro {
+    color: rgba(#fff, 0.86);
+  }
+  .icon-btn {
+    border-color: rgba(#fff, 0.7);
+    color: #fff;
+    &:hover:not(:disabled) {
+      background: $gold;
+      border-color: $gold;
+      color: $navy-900;
+    }
+  }
+}
+
+.section--white,
+.section--sky,
+.section--blue,
+.footer {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+}
+
+// ---- watermark ----
+.wm {
+  position: absolute;
+  z-index: -1;
+  top: 0.04em;
+  right: -0.02em;
+  font-family: $font-display;
+  font-size: clamp(88px, 19vw, 340px);
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba($blue-600, 0.075);
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+  // fades out toward the bottom so it never competes with content
+  -webkit-mask-image: linear-gradient(to bottom, #000 15%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 15%, transparent 92%);
+
+  // left-aligned variant keeps the same top anchor, so neighbouring
+  // sections never show two watermarks stacked against each other
+  &--left {
+    right: auto;
+    left: -0.03em;
+  }
+
+  &--footer {
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: 0.06em;
+    translate: -50% 0;
+    font-size: clamp(120px, 30vw, 520px);
+    color: rgba(#fff, 0.07);
+    -webkit-mask-image: linear-gradient(to top, #000 30%, transparent 100%);
+    mask-image: linear-gradient(to top, #000 30%, transparent 100%);
+  }
+}
+
+.section--sky .wm {
+  color: rgba($blue-600, 0.09);
+}
+.section--blue .wm {
+  color: rgba(#fff, 0.09);
+}

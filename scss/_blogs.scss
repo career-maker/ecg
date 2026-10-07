@@ -1,0 +1,317 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.blogs {
+  background: $paper;
+}
+
+// Slider: cards scroll-snap in a track; round arrows sit to the right of the
+// track (stacked), dots underneath.
+.blog-slider {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: space(5);
+  @include up(lg) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: space(5);
+  }
+
+  // [role] raises specificity above the global ul[role=list] reset, which
+  // would otherwise zero this padding
+  &__track[role] {
+    display: flex;
+    gap: fluid(16, 32);
+    margin: calc(#{space(6)} * -1) calc(#{space(8)} * -1) calc(#{space(9)} * -1 + #{space(5)});
+    // room around the cards so hover lift + shadows are never clipped by the
+    // scroll container; the negative margin cancels it visually
+    padding: space(6) space(8) space(9);
+    list-style: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: #{space(8)};
+    scrollbar-width: none;
+    align-items: stretch;
+    // fade only inside the padding gutters (cards sit clear of them), so no
+    // hard clip line shows and card shadows stay whole
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 #{space(7)}, #000 calc(100% - #{space(7)}), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 #{space(7)}, #000 calc(100% - #{space(7)}), transparent 100%);
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @include focus-ring;
+  }
+
+  &__arrows {
+    position: relative;
+    z-index: 2;
+    display: none;
+    @include up(lg) {
+      display: grid;
+      gap: space(3);
+      align-self: center;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: space(3);
+    grid-column: 1 / -1;
+    margin-top: space(2);
+    button {
+      position: relative;
+      width: 14px;
+      height: 14px;
+      padding: 0;
+      border-radius: 50%;
+      background: $blue-100;
+      transition: background-color $dur ease, transform $dur $ease-out;
+      // 44px hit area without enlarging the dot
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -15px;
+      }
+      @include focus-ring;
+      &:hover {
+        background: lighten($blue-600, 25%);
+      }
+      &.is-active {
+        background: $blue-600;
+        transform: scale(1.15);
+      }
+    }
+  }
+}
+
+.blog-arrow {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid $line;
+  border-radius: 50%;
+  background: #fff;
+  color: $navy-900;
+  box-shadow: 0 16px 32px -20px rgba($navy-900, 0.5);
+  transition: background-color $dur ease, color $dur ease, transform $dur $ease-out,
+    opacity $dur ease;
+  @include focus-ring;
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+  &:hover:not(:disabled) {
+    background: $navy-900;
+    border-color: $navy-900;
+    color: #fff;
+    transform: scale(1.06);
+  }
+  &--solid {
+    background: $blue-600;
+    border-color: $blue-600;
+    color: #fff;
+    &:hover:not(:disabled) {
+      background: $navy-900;
+    }
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+.post-slide {
+  flex: 0 0 min(84%, 380px);
+  scroll-snap-align: start;
+  @include up(md) {
+    flex-basis: calc((100% - #{fluid(16, 24)}) / 2);
+  }
+  // four cards in a row on every desktop width
+  @include up(lg) {
+    flex-basis: calc((100% - 3 * #{fluid(16, 24)}) / 4);
+  }
+  > .post {
+    height: 100%;
+  }
+}
+
+.post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  border-radius: $radius-lg * 2;
+  box-shadow: 0 24px 56px -28px rgba($navy-900, 0.28), 0 0 0 1px rgba($navy-800, 0.04);
+  transition: transform $dur $ease-out, box-shadow $dur ease;
+
+  --tone: #{$blue-600};
+  --tone-soft: #{$blue-50};
+  &--procurement {
+    --chip: #19a8e8;
+    --tone-soft: #e3f3fd;
+    --tone: #1b86d0;
+  }
+  &--technology {
+    --chip: #6c4fe0;
+    --tone-soft: #ece8fd;
+    --tone: #5a3fd1;
+  }
+  &--finance {
+    --chip: #{$gold};
+    --tone-soft: #fdf3cd;
+    --tone: #b88a00;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 36px 64px -28px rgba($navy-900, 0.38), 0 0 0 1px rgba($navy-800, 0.04);
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border-radius: $radius-lg * 2 $radius-lg * 2 0 0;
+    background: $mist-2;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s $ease-out;
+    }
+  }
+  &:hover &__img img {
+    transform: scale(1.06);
+  }
+
+  &__cat {
+    position: absolute;
+    top: space(4);
+    left: space(4);
+    padding: space(2) space(4);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--chip);
+  }
+  &--finance &__cat {
+    color: $navy-900;
+  }
+
+  // round badge straddling the image edge; its white ring forms the notch
+  &__badge {
+    position: absolute;
+    z-index: 1;
+    right: space(5);
+    bottom: -36px;
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--tone-soft);
+    color: var(--tone);
+    box-shadow: 0 0 0 10px #fff;
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: space(3);
+    padding: fluid(16, 28);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: space(2) space(4);
+    margin: 0;
+    // keep the meta row clear of the badge that straddles the image edge
+    padding-right: 72px;
+    font-size: 0.8125rem;
+    color: $muted;
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: space(2);
+    }
+    span + span {
+      padding-left: space(4);
+      border-left: 1px solid $line;
+    }
+    svg {
+      width: 16px;
+      height: 16px;
+      color: $blue-600;
+    }
+  }
+
+  &__title {
+    font-size: fluid(19, 24);
+    font-weight: 700;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    color: $navy-900;
+  }
+
+  &__excerpt {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: $muted;
+  }
+
+  &__more {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: space(2);
+    margin-top: auto;
+    padding-bottom: space(1);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: $blue-600;
+    background: linear-gradient(currentColor, currentColor) 0 100% / 100% 2px no-repeat;
+    transition: color $dur-fast ease;
+    @include focus-ring;
+    .arrow {
+      width: 16px;
+      height: 16px;
+      transition: transform $dur $ease-out;
+    }
+    // whole card is the click target
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+    }
+  }
+  // hover motion belongs to the card, so it never fires on its own
+  @media (hover: hover) {
+    &:hover &__more {
+      color: $navy-900;
+      .arrow {
+        transform: translateX(5px);
+      }
+    }
+  }
+}

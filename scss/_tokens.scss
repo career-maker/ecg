@@ -1,0 +1,65 @@
+@use "sass:map";
+// Design tokens ---------------------------------------------------------
+// Spacing scale (px): 4 8 12 16 24 32 48 64 80 96 120
+$space: (
+  0: 0,
+  1: 4px,
+  2: 8px,
+  3: 12px,
+  4: 16px,
+  5: 24px,
+  6: 32px,
+  7: 48px,
+  8: 64px,
+  9: 80px,
+  10: 96px,
+  11: 120px,
+);
+
+@function space($key) {
+  @return map.get($space, $key);
+}
+
+// Breakpoints (min-width)
+$bp: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1600px,
+);
+
+// Brand colours (sampled from the supplied PDF)
+$blue-600: #0a4dcc;
+$blue-700: #083ea3;
+$blue-50: #eef3fd;
+$sky: #e8f0fe; // light-blue section background
+$gold: #f0c21a; // logo yellow
+$gold-hover: #ffd54a;
+$blue-100: #dbe6fa;
+$yellow: #f0c21a;
+$navy-900: #071634;
+$navy-800: #0b2a6b;
+$ink: #0e1a33;
+$muted: #4a5874;
+$line: #dde3ee;
+$paper: #ffffff;
+$mist: #f5f7fb;
+$mist-2: #eaeff7;
+
+// Typography
+$font-display: "Manrope", "Segoe UI", system-ui, sans-serif;
+$font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+// Layout
+$container: 1440px;
+$header-h: 80px;
+$header-h-sm: 64px;
+$radius: 4px;
+$radius-lg: 8px;
+
+// Motion
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$dur-fast: 180ms;
+$dur: 320ms;
+$dur-slow: 640ms;

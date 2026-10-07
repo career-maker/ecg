@@ -1,0 +1,214 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.practices {
+  background: linear-gradient(to bottom, #fff 0%, $sky 38%);
+
+  &__grid {
+    display: grid;
+    gap: fluid(12, 24);
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include up(sm) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @include up(lg) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      // editorial stagger: every other column sits lower (margin, so the
+      // JS reveal transform on each <li> can't override it)
+      > :nth-child(4n + 2),
+      > :nth-child(4n + 4) {
+        margin-top: #{space(8)};
+      }
+    }
+  }
+}
+
+// Card: photo, number chip, title. Hover/focus washes the photo in brand blue
+// and slides the practice description + link up from beneath the title.
+.pcard {
+  &__link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    padding: fluid(20, 28);
+    overflow: hidden;
+    color: #fff;
+    background: $navy-900;
+    border-radius: $radius-lg * 1.5;
+    isolation: isolate;
+    aspect-ratio: 4 / 4.4;
+    transition: transform $dur $ease-out, box-shadow $dur ease;
+    @include focus-ring;
+
+    @include up(lg) {
+      aspect-ratio: 3 / 4.4;
+    }
+
+    // base gradient for title legibility
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(to top, rgba($navy-900, 0.92) 0%, rgba($navy-900, 0.35) 45%, rgba($navy-900, 0) 75%);
+    }
+    // brand-blue wash that rises on hover
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(to top, rgba($navy-900, 0.97) 0%, rgba($blue-700, 0.93) 55%, rgba($blue-600, 0.82) 100%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s $ease-out;
+  }
+
+  &__num {
+    position: absolute;
+    top: fluid(16, 24);
+    left: fluid(16, 24);
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    height: 32px;
+    padding: 0 space(3);
+    border-radius: 999px;
+    font-family: $font-display;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: $navy-900;
+    @include glass-light(0.8);
+    transition: background-color $dur ease, color $dur ease;
+  }
+
+  &__body {
+    display: grid;
+    gap: 0;
+  }
+
+  &__title {
+    font-size: fluid(20, 26);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-wrap: balance;
+    // gold rule grows under the title
+    &::after {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 3px;
+      margin-top: space(3);
+      background: $gold;
+      transition: width 0.6s $ease-out;
+    }
+  }
+
+  // grid-rows 0fr -> 1fr animates height without layout hacks
+  &__reveal {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.6s $ease-out, opacity 0.5s ease;
+  }
+  &__reveal-inner {
+    display: grid;
+    gap: space(4);
+    min-height: 0;
+    overflow: hidden;
+    padding-top: space(3);
+  }
+
+  &__desc {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: rgba(#fff, 0.92);
+  }
+
+  &__more {
+    display: inline-flex;
+    align-items: center;
+    gap: space(2);
+    justify-self: start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $gold;
+    .arrow {
+      width: 14px;
+      height: 14px;
+      transition: transform $dur $ease-out;
+    }
+  }
+
+  &__link:hover,
+  &__link:focus-visible {
+    box-shadow: 0 32px 48px -28px rgba($blue-600, 0.7);
+    &::before {
+      opacity: 1;
+    }
+    .pcard__img {
+      transform: scale(1.08);
+    }
+    .pcard__num {
+      background: $gold;
+      color: $navy-900;
+    }
+    .pcard__title::after {
+      width: 64px;
+    }
+    .pcard__reveal {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+    .pcard__more .arrow {
+      transform: translateX(5px);
+    }
+  }
+  @media (hover: hover) {
+    &__link:hover {
+      transform: translateY(-6px);
+    }
+  }
+
+  // no hover on touch: details are always visible under the title
+  @media (hover: none) {
+    &__link::before {
+      opacity: 0.85;
+    }
+    &__reveal {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+  }
+
+  @include reduced-motion {
+    &__reveal,
+    &__link::before,
+    &__img,
+    &__title::after {
+      transition: none;
+    }
+  }
+}

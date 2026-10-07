@@ -1,0 +1,196 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.industries {
+  background: $paper;
+
+  &__intro {
+    max-width: 40ch;
+    color: $muted;
+    font-size: fluid(16, 18);
+  }
+}
+
+// Split layout: large numbered list on the left drives a cross-fading image
+// stage on the right (the opposite of the PDF's row of image strips).
+.ind {
+  display: grid;
+  gap: fluid(20, 48);
+  @include up(lg) {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: stretch;
+  }
+
+  &__list {
+    display: grid;
+    align-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(#fff, 0.22);
+    @include down(lg) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: space(5);
+    }
+    @include down(sm) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: space(4);
+    width: 100%;
+    min-height: 64px;
+    padding: space(3) 0;
+    text-align: left;
+    color: rgba(#fff, 0.62);
+    border-bottom: 1px solid rgba(#fff, 0.22);
+    transition: color $dur ease, padding $dur $ease-out;
+    @include up(lg) {
+      min-height: 88px;
+    }
+    @include focus-ring($gold);
+
+    // gold progress rule under the active row
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      background: $gold;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.7s $ease-out;
+    }
+
+    &[aria-pressed="true"] {
+      color: #fff;
+      @include up(lg) {
+        padding-left: space(4);
+      }
+      &::after {
+        transform: none;
+      }
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__num {
+    flex: none;
+    min-width: 28px;
+    font-family: $font-display;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: $gold;
+  }
+
+  &__name {
+    flex: 1;
+    min-width: 0;
+    font-family: $font-display;
+    font-size: fluid(20, 40);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+  &__arrow {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    color: $gold;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity $dur ease, transform $dur $ease-out;
+  }
+  &__item[aria-pressed="true"] &__arrow {
+    opacity: 1;
+    transform: none;
+  }
+
+  &__stage {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: $navy-900;
+    border-radius: $radius-lg * 1.5;
+    @include up(lg) {
+      aspect-ratio: auto;
+      min-height: 480px;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.1);
+      transition: transform 1.6s $ease-out;
+    }
+    &.is-active img {
+      transform: scale(1);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba($navy-900, 0.88) 0%, rgba($navy-900, 0) 55%);
+    }
+  }
+
+  &__cap {
+    position: absolute;
+    z-index: 1;
+    left: fluid(16, 40);
+    right: fluid(16, 40);
+    bottom: fluid(16, 40);
+    display: grid;
+    gap: space(2);
+    color: #fff;
+    transform: translateY(12px);
+    opacity: 0;
+    transition: transform 0.7s $ease-out 0.2s, opacity 0.7s ease 0.2s;
+  }
+  &__slide.is-active &__cap {
+    transform: none;
+    opacity: 1;
+  }
+  &__cap-title {
+    font-family: $font-display;
+    font-size: fluid(18, 26);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  &__cap-desc {
+    max-width: 48ch;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: rgba(#fff, 0.9);
+  }
+}

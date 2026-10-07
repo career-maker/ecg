@@ -1,0 +1,67 @@
+@use "sass:map";
+@use "sass:math";
+@use "tokens" as *;
+
+@mixin up($key) {
+  @media (min-width: map.get($bp, $key)) {
+    @content;
+  }
+}
+
+@mixin down($key) {
+  @media (max-width: calc(#{map.get($bp, $key)} - 1px)) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin focus-ring($color: $blue-600) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 3px;
+  }
+}
+
+@mixin eyebrow {
+  font-family: $font-body;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+// Fluid value between two viewport widths (unitless px inputs)
+@function fluid($min, $max, $vw-min: 360, $vw-max: 1440) {
+  $slope: math.div($max - $min, $vw-max - $vw-min);
+  $base: $min - $slope * $vw-min;
+  @return clamp(#{$min * 1px}, #{$base * 1px} + #{$slope * 100}vw, #{$max * 1px});
+}
+
+@mixin section-pad {
+  padding-block: fluid(40, 72);
+}
+
+@mixin clamp-lines($n) {
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Light "liquid glass": translucent white, soft blur, hairline border
+@mixin glass-light($alpha: 0.72) {
+  background: rgba(#fff, $alpha + 0.2);
+  border: 1px solid rgba(#fff, 0.9);
+  box-shadow: 0 0 0 1px rgba($navy-800, 0.06), 0 24px 48px -24px rgba($navy-900, 0.35);
+  @supports (backdrop-filter: blur(1px)) {
+    background: rgba(#fff, $alpha);
+    -webkit-backdrop-filter: blur(18px) saturate(1.5);
+    backdrop-filter: blur(18px) saturate(1.5);
+  }
+}

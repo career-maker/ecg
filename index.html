@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EGC Global Services</title>
+  <meta name="description" content="From supply chain solutions to engineering and technology, we help global businesses operate smarter, faster, and more efficiently.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="assets/img/brand/egc-global-services.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/photos/hero-poster.jpg">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-quote" viewBox="0 0 40 32" fill="currentColor"><path d="M0 32V19.6C0 8.4 5.6 1.6 16 0l1.6 4.8C12 6.4 9.6 10 9.2 14.4H16V32H0Zm22.4 0V19.6C22.4 8.4 28 1.6 38.4 0L40 4.8c-5.6 1.6-8 5.2-8.4 9.6h6.8V32H22.4Z"/></symbol>
+      <!-- stats -->
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></symbol>
+      <symbol id="i-team" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="5" cy="10" r="2"/><circle cx="19" cy="10" r="2"/></symbol>
+      <symbol id="i-handshake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1.4 1.4 0 0 0 2-2M14 14l2.5 2.5a1.4 1.4 0 0 0 2-2L15 11M3 8l4-3 5 1 3-1 6 4v6l-3 2M3 8v7l4 3M7 5l-1 9 3 2"/></symbol>
+      <!-- impact -->
+      <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a1 1 0 0 1 1 1v3M20 12h-3a2 2 0 0 0 0 4h3v-4Z"/><path d="M3 6v12a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-3"/></symbol>
+      <symbol id="i-search-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><circle cx="10.5" cy="10.5" r="2"/><path d="m15.5 15.5 5 5"/></symbol>
+      <symbol id="i-chart-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16M8 9v8M12 12v5M16 14v3"/><path d="m6 6 5 3 6 3"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+      <symbol id="i-dollar-cycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.2c-.5-.8-1.4-1.2-2.5-1.2-1.5 0-2.5.8-2.5 1.9 0 2.7 5 1.3 5 4 0 1.1-1 1.9-2.5 1.9-1.1 0-2-.4-2.5-1.2M12 6.5V8M12 16v1.5"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+      <symbol id="i-nodes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 8 4 2v4l-4 2-4-2v-4l4-2Z"/><circle cx="12" cy="3.5" r="1.5"/><circle cx="20" cy="8" r="1.5"/><circle cx="20" cy="16" r="1.5"/><circle cx="12" cy="20.5" r="1.5"/><circle cx="4" cy="16" r="1.5"/><circle cx="4" cy="8" r="1.5"/><path d="M12 5v3M18.7 8.8 16 10M18.7 15.2 16 14M12 19v-3M5.3 15.2 8 14M5.3 8.8 8 10"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14 -1.5 8 5-3 5 3-1.5-8"/></symbol>
+      <symbol id="i-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 8h6M9 12h6"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol>
+      <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+      <symbol id="i-report" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+      <symbol id="i-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></symbol>
+      <!-- social -->
+      <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.5-3.2h-3.2V7.9c0-.9.4-1.7 1.8-1.7h1.5V3.4S15.5 3 14.3 3C11.8 3 10.3 4.5 10.3 7.2v2.6H7.5V13h2.8v8h3.2Z"/></symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M5.2 8.8H2.1V21h3.1V8.8ZM3.6 3a1.8 1.8 0 1 0 0 3.6A1.8 1.8 0 0 0 3.6 3ZM21.9 14.2c0-3.3-1.8-5.6-4.7-5.6-1.5 0-2.6.8-3 1.5V8.8h-3V21h3.1v-6.6c0-1.7.8-2.8 2.3-2.8 1.4 0 2 1 2 2.8V21h3.3v-6.8Z"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="top">
+    <div class="container header__bar">
+      <a class="logo" href="#top" aria-label="EGC Global Services — home">
+        <img src="assets/img/brand/egc-global-services.svg" alt="EGC Global Services" width="170" height="46">
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <button class="nav__link" type="button" aria-expanded="false" aria-controls="practices-menu" data-dropdown-btn>
+              Our Practices
+              <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+            </button>
+            <div class="mega" id="practices-menu" data-dropdown-menu>
+              <div class="container mega__inner">
+                <div class="mega__intro">
+                  <p class="eyebrow">Our Practices</p>
+                  <p class="mega__title">Capabilities That Create Value</p>
+                  <a class="link-arrow" href="#practices">Explore Now <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+                <ul class="mega__grid" role="list">
+                  <li><a class="mega__item" href="#practices"><span class="mega__img"><img src="assets/img/photos/pr-1.jpg" alt="" width="800" height="1000" loading="lazy"></span><span class="mega__name">Order to Cash Service</span></a></li>
+                  <li><a class="mega__item" href="#practices"><span class="mega__img"><img src="assets/img/photos/pr-2.jpg" alt="" width="800" height="1000" loading="lazy"></span><span class="mega__name">IT Product Development &amp; Maintenance</span></a></li>
+                  <li><a class="mega__item" href="#practices"><span class="mega__img"><img src="assets/img/photos/pr-3.jpg" alt="" width="800" height="1000" loading="lazy"></span><span class="mega__name">Procure to Pay Service</span></a></li>
+                  <li><a class="mega__item" href="#practices"><span class="mega__img"><img src="assets/img/photos/pr-4.jpg" alt="" width="800" height="1000" loading="lazy"></span><span class="mega__name">Record to Report Service</span></a></li>
+                  <li><a class="mega__item" href="#practices"><span class="mega__img"><img src="assets/img/photos/pr-5.jpg" alt="" width="800" height="1000" loading="lazy"></span><span class="mega__name">Master Data and Category Management</span></a></li>
+                  <li><a class="mega__item" href="#practices"><span class="mega__img"><img src="assets/img/photos/pr-6.jpg" alt="" width="800" height="1000" loading="lazy"></span><span class="mega__name">eCommerce Practice Management</span></a></li>
+                  <li><a class="mega__item" href="#practices"><span class="mega__img"><img src="assets/img/photos/pr-7.jpg" alt="" width="800" height="1000" loading="lazy"></span><span class="mega__name">Spend Management</span></a></li>
+                  <li><a class="mega__item" href="#practices"><span class="mega__img"><img src="assets/img/photos/pr-8.jpg" alt="" width="800" height="1000" loading="lazy"></span><span class="mega__name">Inventory Management</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li><a class="nav__link" href="#industries">Industries We Serve</a></li>
+          <li><a class="nav__link" href="#blogs">Resources</a></li>
+          <li><a class="nav__link" href="#careers">Careers</a></li>
+          <li><a class="nav__link" href="#about">About Us</a></li>
+          <li><a class="nav__link" href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--gold btn--sm header__cta" href="#practices">Explore Now</a>
+
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" inert>
+    <ul>
+      <li>
+        <details>
+          <summary>Our Practices <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul>
+            <li><a href="#practices">Order to Cash Service</a></li>
+            <li><a href="#practices">IT Product Development &amp; Maintenance</a></li>
+            <li><a href="#practices">Procure to Pay Service</a></li>
+            <li><a href="#practices">Record to Report Service</a></li>
+            <li><a href="#practices">Master Data and Category Management</a></li>
+            <li><a href="#practices">eCommerce Practice Management</a></li>
+            <li><a href="#practices">Spend Management</a></li>
+            <li><a href="#practices">Inventory Management</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="#industries">Industries We Serve</a></li>
+      <li><a href="#blogs">Resources</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+    <a class="btn btn--gold" href="#practices">Explore Now</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__media" data-hero-media>
+        <div class="hero__layer">
+          <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/photos/hero-poster.jpg" aria-hidden="true" tabindex="-1" data-parallax>
+            <source src="assets/video/hero.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="container hero__inner">
+
+        <div class="hero__copy">
+          <div class="clients" data-hero="0.1">
+            <div class="clients__faces">
+              <img src="assets/img/photos/av-1.jpg" alt="" width="44" height="44">
+              <img src="assets/img/photos/av-2.jpg" alt="" width="44" height="44">
+              <img src="assets/img/photos/av-3.jpg" alt="" width="44" height="44">
+              <img src="assets/img/photos/av-4.jpg" alt="" width="44" height="44">
+            </div>
+            <p class="clients__text"><strong>100+</strong><span>Clients Served</span></p>
+          </div>
+          <h1 class="hero__title mark" id="hero-title" data-split>Solutions That Move Industry Forward</h1>
+          <p class="hero__lede" data-hero="0.95">From supply chain solutions to engineering and technology, we help global businesses operate smarter, faster, and more efficiently.</p>
+          <div class="hero__actions" data-hero="1.1">
+            <a class="btn btn--lg" href="#practices">Explore Now <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="hero__scroll" href="#about" aria-label="scroll down"><span>scroll down</span><svg class="hero__scroll-icon" aria-hidden="true"><use href="#i-chev"/></svg></a>
+          </div>
+        </div>
+
+        <div class="offer" role="group" aria-label="what we offer" data-hero="1.25">
+          <p class="offer__label">what we offer</p>
+          <ul class="offer__list" role="list">
+            <li><a class="offer__item" href="#practices"><span class="offer__icon"><svg aria-hidden="true"><use href="#i-receipt"/></svg></span><span class="offer__text">Order to Cash Service</span><svg class="offer__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="offer__item" href="#practices"><span class="offer__icon"><svg aria-hidden="true"><use href="#i-code"/></svg></span><span class="offer__text">IT Product Development &amp; Maintenance</span><svg class="offer__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="offer__item" href="#practices"><span class="offer__icon"><svg aria-hidden="true"><use href="#i-card"/></svg></span><span class="offer__text">Procure to Pay Service</span><svg class="offer__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="offer__item" href="#practices"><span class="offer__icon"><svg aria-hidden="true"><use href="#i-report"/></svg></span><span class="offer__text">Record to Report Service</span><svg class="offer__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+          </ul>
+        </div>
+
+        <ul class="stats" role="list" data-hero="1.4">
+          <li class="stats__item">
+            <span class="stats__icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+            <p class="stats__body"><span class="stats__num"><span data-count="16">16</span>+</span><span class="stats__label">Global Markets</span></p>
+          </li>
+          <li class="stats__item">
+            <span class="stats__icon"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+            <p class="stats__body"><span class="stats__num"><span data-count="250">250</span>+</span><span class="stats__label">Active Programs</span></p>
+          </li>
+          <li class="stats__item">
+            <span class="stats__icon"><svg aria-hidden="true"><use href="#i-team"/></svg></span>
+            <p class="stats__body"><span class="stats__num"><span data-count="1200">1,200</span>+</span><span class="stats__label">Global Workforce</span></p>
+          </li>
+          <li class="stats__item">
+            <span class="stats__icon"><svg aria-hidden="true"><use href="#i-handshake"/></svg></span>
+            <p class="stats__body"><span class="stats__num"><span data-count="5">5</span>+</span><span class="stats__label">Business Functions</span></p>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about section--white section" id="about" aria-labelledby="about-title">
+      <span class="wm wm--left" aria-hidden="true">About</span>
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__copy">
+            <p class="eyebrow" data-reveal>About Us</p>
+            <h2 class="about__title" id="about-title" data-reveal><strong>EGC Global Services India Private Limited (EGCGS),</strong> founded in 2021, is a wholly owned subsidiary of EWIE Group of Companies LLC (EGC).</h2>
+            <div class="about__text" data-reveal>
+              <p>We are a rapidly growing company fueled by 1200 + passionate individuals managing 250+ programs in 16 countries.</p>
+              <p>EGC is considered to be leader in adoption of new technology and implementation of global program practices, creating tangible value for our customers.</p>
+            </div>
+            <div class="about__actions" data-reveal>
+              <a class="btn" href="#practices">Explore Now <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn--ghost" href="#life">LIFE @ ECGCS</a>
+            </div>
+          </div>
+          <figure class="about__media" data-reveal data-delay="0.15">
+            <img class="about__collage" src="assets/img/photos/about-collage.png" alt="Two colleagues in hard hats on a factory floor, with a robotic arm in the corner" width="1536" height="1024" loading="lazy">
+          </figure>
+        </div>
+
+        <ul class="about-stats" role="list" data-stagger>
+            <li class="about-stats__item"><span class="about-stats__icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><p class="about-stats__body"><span class="about-stats__num"><span data-count="16">16</span>+</span><span class="about-stats__label">Global Markets</span></p></li>
+            <li class="about-stats__item"><span class="about-stats__icon"><svg aria-hidden="true"><use href="#i-briefcase"/></svg></span><p class="about-stats__body"><span class="about-stats__num"><span data-count="250">250</span>+</span><span class="about-stats__label">Active Programs</span></p></li>
+            <li class="about-stats__item"><span class="about-stats__icon"><svg aria-hidden="true"><use href="#i-team"/></svg></span><p class="about-stats__body"><span class="about-stats__num"><span data-count="1200">1,200</span>+</span><span class="about-stats__label">Global Workforce</span></p></li>
+            <li class="about-stats__item"><span class="about-stats__icon"><svg aria-hidden="true"><use href="#i-handshake"/></svg></span><p class="about-stats__body"><span class="about-stats__num"><span data-count="5">5</span>+</span><span class="about-stats__label">Business Functions</span></p></li>
+        </ul>
+
+        <div class="brands brands--marquee" data-reveal>
+          <p class="brands__label">EGC comprises of the following brands –</p>
+          <div class="marquee">
+            <div class="marquee__track">
+          <ul class="marquee__set" role="list">
+            <li class="marquee__item"><img src="assets/img/brand/ewie.png" alt="EWIE" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/psmi.png" alt="PSMi Production Services Management Inc" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/sourcepro.png" alt="SourcePRO Inc" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/gsss.png" alt="Gaging Solutions &amp; Services" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/ewie.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/psmi.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/sourcepro.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/gsss.png" alt="" loading="lazy"></li>
+          </ul>
+          <ul class="marquee__set" aria-hidden="true" role="list">
+            <li class="marquee__item"><img src="assets/img/brand/ewie.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/psmi.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/sourcepro.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/gsss.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/ewie.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/psmi.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/sourcepro.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/gsss.png" alt="" loading="lazy"></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRACTICES ============ -->
+    <section class="practices section--sky section" id="practices" aria-labelledby="practices-title">
+      <span class="wm " aria-hidden="true">Practices</span>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__text" data-reveal>
+            <p class="eyebrow">Our Practices</p>
+            <h2 class="h2 mark" id="practices-title">Capabilities That Create Value</h2>
+          </div>
+        </div>
+
+        <ol class="practices__grid" role="list" data-stagger>
+          <li class="pcard">
+            <a class="pcard__link" href="https://egcgs.theegc.com/order-to-cash/" target="_blank" rel="noopener">
+              <img class="pcard__img" src="assets/img/photos/pr-1.jpg" alt="" width="800" height="1000" loading="lazy">
+              <span class="pcard__num">01</span>
+              <span class="pcard__body">
+                <h3 class="pcard__title">Order to Cash Service</h3>
+                <span class="pcard__reveal"><span class="pcard__reveal-inner">
+                  <span class="pcard__desc">Improve how you receive, process, manage and complete customer orders by optimizing the O2C process end-to-end</span>
+                  <span class="pcard__more">Learn More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                </span></span>
+              </span>
+            </a>
+          </li>
+          <li class="pcard">
+            <a class="pcard__link" href="https://egcgs.theegc.com/it-product-development-maintenance/" target="_blank" rel="noopener">
+              <img class="pcard__img" src="assets/img/photos/pr-2.jpg" alt="" width="800" height="1000" loading="lazy">
+              <span class="pcard__num">02</span>
+              <span class="pcard__body">
+                <h3 class="pcard__title">IT Product Development &amp; Maintenance</h3>
+                <span class="pcard__reveal"><span class="pcard__reveal-inner">
+                  <span class="pcard__desc">Develop and maintain technology products catering to procurement and spend management</span>
+                  <span class="pcard__more">Learn More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                </span></span>
+              </span>
+            </a>
+          </li>
+          <li class="pcard">
+            <a class="pcard__link" href="https://egcgs.theegc.com/procure-to-pay-service/" target="_blank" rel="noopener">
+              <img class="pcard__img" src="assets/img/photos/pr-3.jpg" alt="" width="800" height="1000" loading="lazy">
+              <span class="pcard__num">03</span>
+              <span class="pcard__body">
+                <h3 class="pcard__title">Procure to Pay Service</h3>
+                <span class="pcard__reveal"><span class="pcard__reveal-inner">
+                  <span class="pcard__desc">Manage the process of procurement, approvals, compliance and payments to suppliers</span>
+                  <span class="pcard__more">Learn More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                </span></span>
+              </span>
+            </a>
+          </li>
+          <li class="pcard">
+            <a class="pcard__link" href="https://egcgs.theegc.com/record-to-report-services/" target="_blank" rel="noopener">
+              <img class="pcard__img" src="assets/img/photos/pr-4.jpg" alt="" width="800" height="1000" loading="lazy">
+              <span class="pcard__num">04</span>
+              <span class="pcard__body">
+                <h3 class="pcard__title">Record to Report Service</h3>
+                <span class="pcard__reveal"><span class="pcard__reveal-inner">
+                  <span class="pcard__desc">Collect, process and present company financial data to analyze financial, operational and strategic performance</span>
+                  <span class="pcard__more">Learn More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                </span></span>
+              </span>
+            </a>
+          </li>
+          <li class="pcard">
+            <a class="pcard__link" href="https://egcgs.theegc.com/master-data-and-category-management/" target="_blank" rel="noopener">
+              <img class="pcard__img" src="assets/img/photos/pr-5.jpg" alt="" width="800" height="1000" loading="lazy">
+              <span class="pcard__num">05</span>
+              <span class="pcard__body">
+                <h3 class="pcard__title">Master Data and Category Management</h3>
+                <span class="pcard__reveal"><span class="pcard__reveal-inner">
+                  <span class="pcard__desc">Derive clean and unified data, create master record to achieve effective data governance and quality enhancement with MDM services</span>
+                  <span class="pcard__more">Learn More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                </span></span>
+              </span>
+            </a>
+          </li>
+          <li class="pcard">
+            <a class="pcard__link" href="https://egcgs.theegc.com/ecommerce-practice-management/" target="_blank" rel="noopener">
+              <img class="pcard__img" src="assets/img/photos/pr-6.jpg" alt="" width="800" height="1000" loading="lazy">
+              <span class="pcard__num">06</span>
+              <span class="pcard__body">
+                <h3 class="pcard__title">eCommerce Practice Management</h3>
+                <span class="pcard__reveal"><span class="pcard__reveal-inner">
+                  <span class="pcard__desc">We offer B2B and B2C eCommerce solutions for indirect material, complementing the eProcurement and industry 4.0 initiatives of our customers</span>
+                  <span class="pcard__more">Learn More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                </span></span>
+              </span>
+            </a>
+          </li>
+          <li class="pcard">
+            <a class="pcard__link" href="https://egcgs.theegc.com/spend-management/" target="_blank" rel="noopener">
+              <img class="pcard__img" src="assets/img/photos/pr-7.jpg" alt="" width="800" height="1000" loading="lazy">
+              <span class="pcard__num">07</span>
+              <span class="pcard__body">
+                <h3 class="pcard__title">Spend Management</h3>
+                <span class="pcard__reveal"><span class="pcard__reveal-inner">
+                  <span class="pcard__desc">Statistical and AI components enables rationalization and consolidation of spend while considering the vendor scorecard</span>
+                  <span class="pcard__more">Learn More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                </span></span>
+              </span>
+            </a>
+          </li>
+          <li class="pcard">
+            <a class="pcard__link" href="https://egcgs.theegc.com/inventory-management/" target="_blank" rel="noopener">
+              <img class="pcard__img" src="assets/img/photos/pr-8.jpg" alt="" width="800" height="1000" loading="lazy">
+              <span class="pcard__num">08</span>
+              <span class="pcard__body">
+                <h3 class="pcard__title">Inventory Management</h3>
+                <span class="pcard__reveal"><span class="pcard__reveal-inner">
+                  <span class="pcard__desc">Utilize technology, expertise and experience to right size inventory and manage it efficiently</span>
+                  <span class="pcard__more">Learn More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                </span></span>
+              </span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ INDUSTRIES ============ -->
+    <section class="industries section--blue section" id="industries" aria-labelledby="industries-title">
+      <span class="wm " aria-hidden="true">Industries</span>
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <div class="section-head__text" data-reveal>
+            <p class="eyebrow">Industries We Serve</p>
+            <h2 class="h2 mark" id="industries-title">Serving Companies Across Industries</h2>
+          </div>
+          <p class="industries__intro" data-reveal data-delay="0.1">Delivering technology-driven solutions tailored to the unique needs of businesses across diverse industries.</p>
+        </div>
+
+        <div class="ind" data-stagger>
+          <ul class="ind__list" role="list">
+            <li><button class="ind__item" type="button" data-ind aria-pressed="true"><span class="ind__num">01</span><span class="ind__name">Automative</span><svg class="ind__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>
+            <li><button class="ind__item" type="button" data-ind aria-pressed="false"><span class="ind__num">02</span><span class="ind__name">Aerospace</span><svg class="ind__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>
+            <li><button class="ind__item" type="button" data-ind aria-pressed="false"><span class="ind__num">03</span><span class="ind__name">Energy</span><svg class="ind__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>
+            <li><button class="ind__item" type="button" data-ind aria-pressed="false"><span class="ind__num">04</span><span class="ind__name">Heavy-Industry</span><svg class="ind__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>
+            <li><button class="ind__item" type="button" data-ind aria-pressed="false"><span class="ind__num">05</span><span class="ind__name">Multi-Industry</span><svg class="ind__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>
+            <li><button class="ind__item" type="button" data-ind aria-pressed="false"><span class="ind__num">06</span><span class="ind__name">Medical</span><svg class="ind__arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>
+          </ul>
+          <div class="ind__stage" aria-live="polite">
+            <figure class="ind__slide is-active" data-ind-slide>
+              <img src="assets/img/photos/ind-automative.jpg" alt="" width="1400" height="800" loading="lazy">
+              <figcaption class="ind__cap"><span class="ind__cap-title">Automative</span><span class="ind__cap-desc">Develop and maintain technology products catering to procurement and spend management.</span></figcaption>
+            </figure>
+            <figure class="ind__slide" data-ind-slide>
+              <img src="assets/img/photos/ind-aerospace.jpg" alt="" width="1400" height="800" loading="lazy">
+              <figcaption class="ind__cap"><span class="ind__cap-title">Aerospace</span></figcaption>
+            </figure>
+            <figure class="ind__slide" data-ind-slide>
+              <img src="assets/img/photos/ind-energy.jpg" alt="" width="1400" height="800" loading="lazy">
+              <figcaption class="ind__cap"><span class="ind__cap-title">Energy</span></figcaption>
+            </figure>
+            <figure class="ind__slide" data-ind-slide>
+              <img src="assets/img/photos/ind-heavy.jpg" alt="" width="1400" height="800" loading="lazy">
+              <figcaption class="ind__cap"><span class="ind__cap-title">Heavy-Industry</span></figcaption>
+            </figure>
+            <figure class="ind__slide" data-ind-slide>
+              <img src="assets/img/photos/ind-multi.jpg" alt="" width="1400" height="800" loading="lazy">
+              <figcaption class="ind__cap"><span class="ind__cap-title">Multi-Industry</span></figcaption>
+            </figure>
+            <figure class="ind__slide" data-ind-slide>
+              <img src="assets/img/photos/ind-medical.jpg" alt="" width="1400" height="800" loading="lazy">
+              <figcaption class="ind__cap"><span class="ind__cap-title">Medical</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IMPACT ============ -->
+    <section class="impact section--white section" id="impact" aria-labelledby="impact-title">
+      <span class="wm " aria-hidden="true">Impact</span>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__text" data-reveal>
+            <p class="eyebrow">How We Impact</p>
+            <h2 class="h2 mark" id="impact-title">How Our Solutions Create Impact</h2>
+          </div>
+        </div>
+        <ul class="impact__grid" role="list" data-stagger>
+          <li class="impact-item impact-item--lead"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span><p class="impact-item__text">Procurement and Spend Optimization Solutions</p></li>
+          <li class="impact-item"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-search-gear"/></svg></span><p class="impact-item__text">Quicker identification of areas of improvement</p></li>
+          <li class="impact-item"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-chart-down"/></svg></span><p class="impact-item__text">Reduction of Cost per unit manufactured</p></li>
+          <li class="impact-item"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-doc"/></svg></span><p class="impact-item__text">Right sized inventory releasing working capital</p></li>
+          <li class="impact-item"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-dollar-cycle"/></svg></span><p class="impact-item__text">Spend consolidation leading to cost reduction</p></li>
+          <li class="impact-item"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-gear"/></svg></span><p class="impact-item__text">Predictable SLA Driven stable process</p></li>
+          <li class="impact-item"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-nodes"/></svg></span><p class="impact-item__text">Standardized/scalable process available in various engagement models</p></li>
+          <li class="impact-item"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-award"/></svg></span><p class="impact-item__text">Leverage 30 years of experience to develop technology solution for indirect material procurement</p></li>
+          <li class="impact-item"><span class="impact-item__icon"><svg aria-hidden="true"><use href="#i-timer"/></svg></span><p class="impact-item__text">Reduce time to market and overall cost of ownership by utilizing our technology products</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ LIFE @ EGC + CAREERS ============ -->
+    <section class="life section--sky section" id="life" aria-labelledby="life-title">
+      <span class="wm wm--left" aria-hidden="true">Life @ EGC</span>
+      <div class="container life__head">
+        <p class="eyebrow" data-reveal>Life @ EGC</p>
+        <h2 class="h2 life__title mark" id="life-title" data-reveal>Discover what it’s like to be part of EGC</h2>
+      </div>
+
+      <div class="container collage">
+        <ul class="collage__row" role="list">
+          <li class="collage__item collage__item--1 collage__item--blue"><figure class="collage__card"><img src="assets/img/photos/life-1.jpg" alt="Technician with a tablet inside an aircraft hangar" width="1000" height="1000" loading="lazy"></figure></li>
+          <li class="collage__item collage__item--2 collage__item--gold"><figure class="collage__card"><img src="assets/img/photos/life-2.jpg" alt="Two colleagues reviewing a laptop together" width="1000" height="1000" loading="lazy"></figure></li>
+          <li class="collage__item collage__item--3 collage__item--blue"><figure class="collage__card"><img src="assets/img/photos/life-3.jpg" alt="A team in blue overalls walking through a hangar" width="1000" height="1000" loading="lazy"></figure></li>
+          <li class="collage__item collage__item--4 collage__item--blue"><figure class="collage__card"><img src="assets/img/photos/life-4.jpg" alt="Two engineers inspecting a vehicle with a laptop" width="1000" height="1000" loading="lazy"></figure></li>
+          <li class="collage__item collage__item--5 collage__item--gold"><figure class="collage__card"><img src="assets/img/photos/life-5.jpg" alt="Engineers with tablets beside an aircraft" width="1000" height="1000" loading="lazy"></figure></li>
+        </ul>
+      </div>
+
+      <div class="container join" id="careers">
+        <div class="join__card" data-reveal>
+          <figure class="join__media">
+            <img class="join__collage" src="assets/img/photos/join-collage.png" alt="Two colleagues in blue overalls checking a tablet and laptop beside an open car engine" width="1536" height="1024" loading="lazy">
+          </figure>
+          <div class="join__copy">
+            <p class="eyebrow">Join Our Team</p>
+            <h2 class="h2 mark" id="join-title">Build Your Career With <span class="join__accent">EGC</span></h2>
+            <p class="join__text">Join a growing team where your skills, ideas, and contributions can make a difference.</p>
+            <a class="btn btn--gold btn--lg" href="#">View Openings <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SUCCESS STORIES ============ -->
+    <section class="stories section--blue section" id="stories" aria-labelledby="stories-title">
+      <span class="wm " aria-hidden="true">Stories</span>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__text" data-reveal>
+            <p class="eyebrow">Success Stories</p>
+            <h2 class="h2 mark" id="stories-title">What Our Clients Have to Say</h2>
+          </div>
+        </div>
+
+        <div class="story" data-stories data-reveal>
+          <div class="story__stage" aria-live="polite">
+            <svg class="story__mark" aria-hidden="true"><use href="#i-quote"/></svg>
+            <figure class="story__slide is-active" data-story-slide>
+              <blockquote class="story__quote"><p>Working with this team has completely transformed our supply chain operations. Their expertise in procurement and logistics not only reduced our costs but also improved efficiency across the board. We now have a reliable partner who understands our business needs and delivers beyond expectations.</p></blockquote>
+              <figcaption class="story__who"><img src="assets/img/photos/t-james.jpg" alt="" width="56" height="56" loading="lazy"><span><cite class="story__name">James W</cite><span class="story__role">Supply Chain Director, Europe</span></span></figcaption>
+            </figure>
+            <figure class="story__slide" data-story-slide>
+              <blockquote class="story__quote"><p>The professionalism, transparency, and innovative solutions they provide have been game changers for our company. From procurement to global distribution, their support has helped us scale with confidence.</p></blockquote>
+              <figcaption class="story__who"><img src="assets/img/photos/t-aisha.jpg" alt="" width="56" height="56" loading="lazy"><span><cite class="story__name">Aisha K</cite><span class="story__role">Operations Manager, Middle East</span></span></figcaption>
+            </figure>
+            <figure class="story__slide" data-story-slide>
+              <blockquote class="story__quote"><p>Working with this team has completely transformed our supply chain operations. Their expertise in procurement and logistics not only reduced our costs but also improved efficiency across the board. We now have a reliable partner who understands our business needs and delivers beyond expectations.</p></blockquote>
+              <figcaption class="story__who"><img src="assets/img/photos/t-james2.jpg" alt="" width="56" height="56" loading="lazy"><span><cite class="story__name">James W</cite><span class="story__role">Supply Chain Director, Europe</span></span></figcaption>
+            </figure>
+            <figure class="story__slide" data-story-slide>
+              <blockquote class="story__quote"><p>Partnering with them has been one of the best strategic decisions we’ve made. Their ability to deliver consistent quality, adapt to changing market demands, and provide innovative supply chain solutions has had a direct impact on our growth. Beyond just being a service provider, they’ve become a trusted partner who truly cares about our success.</p></blockquote>
+              <figcaption class="story__who"><img src="assets/img/photos/t-daniel.jpg" alt="" width="56" height="56" loading="lazy"><span><cite class="story__name">Daniel R</cite><span class="story__role">CEO, North America</span></span></figcaption>
+            </figure>
+            <div class="story__controls">
+              <button class="icon-btn" type="button" data-story-prev aria-label="Previous testimonial"><svg aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+              <button class="icon-btn" type="button" data-story-next aria-label="Next testimonial"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+          <ul class="story__tabs" role="list">
+            <li><button class="story__tab is-active" type="button" data-story-tab aria-pressed="true"><img src="assets/img/photos/t-james.jpg" alt="" width="48" height="48" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">James W</span><span class="story__tab-role">Supply Chain Director, Europe</span></span><span class="story__bar" aria-hidden="true"></span></button></li>
+            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/t-aisha.jpg" alt="" width="48" height="48" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">Aisha K</span><span class="story__tab-role">Operations Manager, Middle East</span></span><span class="story__bar" aria-hidden="true"></span></button></li>
+            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/t-james2.jpg" alt="" width="48" height="48" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">James W</span><span class="story__tab-role">Supply Chain Director, Europe</span></span><span class="story__bar" aria-hidden="true"></span></button></li>
+            <li><button class="story__tab" type="button" data-story-tab aria-pressed="false"><img src="assets/img/photos/t-daniel.jpg" alt="" width="48" height="48" loading="lazy"><span class="story__tab-text"><span class="story__tab-name">Daniel R</span><span class="story__tab-role">CEO, North America</span></span><span class="story__bar" aria-hidden="true"></span></button></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOGS ============ -->
+    <section class="blogs section--white section" id="blogs" aria-labelledby="blogs-title">
+      <span class="wm " aria-hidden="true">Insights</span>
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head__text" data-reveal>
+            <p class="eyebrow">Our Blogs</p>
+            <h2 class="h2 mark" id="blogs-title">Explore Our Latest Industry Insights</h2>
+          </div>
+          <a class="btn" href="#" data-reveal>View All Blogs <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+
+        <div class="blog-slider" data-blogs data-reveal>
+          <ul class="blog-slider__track" role="list" data-blog-track tabindex="0" aria-roledescription="carousel" aria-label="Latest blog posts">
+            <li class="post-slide">
+              <article class="post post--procurement">
+                <div class="post__media">
+                <div class="post__img">
+                  <img src="assets/img/photos/blog-1.jpg" alt="" width="1000" height="667" loading="lazy">
+                  <span class="post__cat">Procurement</span>
+                </div>
+                <span class="post__badge"><svg aria-hidden="true"><use href="#i-doc"/></svg></span>
+                </div>
+                <div class="post__body">
+                  <p class="post__meta"><span><svg aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-09-07">07 Sep 2026</time></span><span><svg aria-hidden="true"><use href="#i-clock"/></svg>5 min read</span></p>
+                  <h3 class="post__title">What is Procure-to-Pay (P2P)? Benefits of Implementing a Procure-to- Pay System for Businesses</h3>
+                  <p class="post__excerpt">Discover how a Procure-to-Pay system streamlines purchasing, improves visibility, and drives efficiency across businesses...</p>
+                  <a class="post__more" href="#">Read More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </article>
+            </li>
+            <li class="post-slide">
+              <article class="post post--technology">
+                <div class="post__media">
+                <div class="post__img">
+                  <img src="assets/img/photos/blog-2.jpg" alt="" width="1000" height="667" loading="lazy">
+                  <span class="post__cat">Technology</span>
+                </div>
+                <span class="post__badge"><svg aria-hidden="true"><use href="#i-chip"/></svg></span>
+                </div>
+                <div class="post__body">
+                  <p class="post__meta"><span><svg aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-09-07">07 Sep 2026</time></span><span><svg aria-hidden="true"><use href="#i-clock"/></svg>6 min read</span></p>
+                  <h3 class="post__title">Benefits, Implementation, and Future Implications of R2R</h3>
+                  <p class="post__excerpt">Clean and consistent data is the foundation of a successful Record-to-Report process. Explore the key benefits and future...</p>
+                  <a class="post__more" href="#">Read More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </article>
+            </li>
+            <li class="post-slide">
+              <article class="post post--finance">
+                <div class="post__media">
+                <div class="post__img">
+                  <img src="assets/img/photos/blog-3.jpg" alt="" width="1000" height="667" loading="lazy">
+                  <span class="post__cat">Finance</span>
+                </div>
+                <span class="post__badge"><svg aria-hidden="true"><use href="#i-report"/></svg></span>
+                </div>
+                <div class="post__body">
+                  <p class="post__meta"><span><svg aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-09-07">07 Sep 2026</time></span><span><svg aria-hidden="true"><use href="#i-clock"/></svg>4 min read</span></p>
+                  <h3 class="post__title">What is Spend Management, Why It Matters, and Best Practices</h3>
+                  <p class="post__excerpt">Learn how effective spend management drives cost savings, improves compliance, and enables better business decisions...</p>
+                  <a class="post__more" href="#">Read More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </article>
+            </li>
+            <li class="post-slide">
+              <article class="post post--procurement">
+                <div class="post__media">
+                <div class="post__img">
+                  <img src="assets/img/photos/pr-1.jpg" alt="" width="1000" height="667" loading="lazy">
+                  <span class="post__cat">Order to Cash</span>
+                </div>
+                <span class="post__badge"><svg aria-hidden="true"><use href="#i-receipt"/></svg></span>
+                </div>
+                <div class="post__body">
+                  <p class="post__meta"><span><svg aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-09-07">07 Sep 2026</time></span><span><svg aria-hidden="true"><use href="#i-clock"/></svg>5 min read</span></p>
+                  <h3 class="post__title">What is Order to Cash (O2C)? Why Should Companies Adopt an Order-to-Cash System?</h3>
+                  <p class="post__excerpt">Improve how you receive, process, manage and complete customer orders by optimizing the O2C process end-to-end</p>
+                  <a class="post__more" href="https://egcgs.theegc.com/what-is-order-to-cash-o2c-why-should-companies-adopt-an-order-to-cash-system/" target="_blank" rel="noopener">Read More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </article>
+            </li>
+            <li class="post-slide">
+              <article class="post post--technology">
+                <div class="post__media">
+                <div class="post__img">
+                  <img src="assets/img/photos/pr-2.jpg" alt="" width="1000" height="667" loading="lazy">
+                  <span class="post__cat">Technology</span>
+                </div>
+                <span class="post__badge"><svg aria-hidden="true"><use href="#i-code"/></svg></span>
+                </div>
+                <div class="post__body">
+                  <p class="post__meta"><span><svg aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-09-07">07 Sep 2026</time></span><span><svg aria-hidden="true"><use href="#i-clock"/></svg>4 min read</span></p>
+                  <h3 class="post__title">What are IT Product Development Services?</h3>
+                  <p class="post__excerpt">Develop and maintain technology products catering to procurement and spend management</p>
+                  <a class="post__more" href="https://egcgs.theegc.com/what-are-it-product-development-services/" target="_blank" rel="noopener">Read More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </article>
+            </li>
+            <li class="post-slide">
+              <article class="post post--finance">
+                <div class="post__media">
+                <div class="post__img">
+                  <img src="assets/img/photos/pr-6.jpg" alt="" width="1000" height="667" loading="lazy">
+                  <span class="post__cat">eCommerce</span>
+                </div>
+                <span class="post__badge"><svg aria-hidden="true"><use href="#i-card"/></svg></span>
+                </div>
+                <div class="post__body">
+                  <p class="post__meta"><span><svg aria-hidden="true"><use href="#i-calendar"/></svg><time datetime="2026-09-07">07 Sep 2026</time></span><span><svg aria-hidden="true"><use href="#i-clock"/></svg>6 min read</span></p>
+                  <h3 class="post__title">E-Commerce Catalog Management: What &amp; Why?</h3>
+                  <p class="post__excerpt">We offer B2B and B2C eCommerce solutions for indirect material, complementing the eProcurement and industry 4.0 initiatives of our customers</p>
+                  <a class="post__more" href="https://egcgs.theegc.com/e-commerce-catalog-management-what-why/" target="_blank" rel="noopener">Read More <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </article>
+            </li>
+          </ul>
+          <div class="blog-slider__arrows">
+            <button class="blog-arrow" type="button" data-blog-prev aria-label="Previous posts"><svg aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <button class="blog-arrow blog-arrow--solid" type="button" data-blog-next aria-label="Next posts"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+          <div class="blog-slider__dots" role="group" aria-label="Choose post">
+            <button type="button" data-blog-dot aria-label="Post 1"></button>
+            <button type="button" data-blog-dot aria-label="Post 2"></button>
+            <button type="button" data-blog-dot aria-label="Post 3"></button>
+            <button type="button" data-blog-dot aria-label="Post 4"></button>
+            <button type="button" data-blog-dot aria-label="Post 5"></button>
+            <button type="button" data-blog-dot aria-label="Post 6"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LET'S CONNECT ============ -->
+    <section class="connect section--sky section" id="contact" aria-labelledby="connect-title">
+      <span class="wm wm--left" aria-hidden="true">Connect</span>
+      <div class="container">
+        <div class="connect__panel" data-reveal>
+          <div class="connect__bg" aria-hidden="true">
+            <img src="assets/img/photos/cta.jpg" alt="" width="1800" height="1029" loading="lazy" data-parallax>
+          </div>
+          <svg class="connect__rings" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+            <circle cx="300" cy="300" r="120"/>
+            <circle cx="300" cy="300" r="200"/>
+            <circle class="connect__ring-dash" cx="300" cy="300" r="280"/>
+          </svg>
+          <div class="connect__inner">
+            <p class="eyebrow">Let’s Connect</p>
+            <h2 class="h2 connect__title mark" id="connect-title">Looking to improve your business processes? Let’s start a conversation</h2>
+            <a class="btn btn--gold btn--lg" href="mailto:egcgshr@theegc.com">Contact Us <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <span class="wm wm--footer" aria-hidden="true">EGC</span>
+    <div class="container footer__main">
+      <div class="footer__brand">
+        <img src="assets/img/brand/egc-global-services-white.svg" alt="EGC Global Services" width="170" height="48" loading="lazy">
+        <p>EGC Global Services India Private Limited (EGCGS), founded in 2021, is a wholly owned subsidiary of EWIE Group of Companies LLC (EGC).</p>
+        <div class="footer__follow">
+          <h3>Follow Us</h3>
+          <ul class="social" role="list">
+            <li><a href="#" aria-label="Facebook"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+            <li><a href="#" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
+            <li><a href="#" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+            <li><a href="#" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="#" aria-label="X"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <nav aria-label="Quick links">
+        <details class="fold" open>
+          <summary class="fold__head"><h3>Quick Links</h3><svg class="fold__chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul class="footer__list" role="list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#careers">Career</a></li>
+            <li><a href="#blogs">Blog</a></li>
+            <li><a href="#industries">Industries We Serve</a></li>
+          </ul>
+        </details>
+      </nav>
+
+      <nav aria-label="Our practices">
+        <details class="fold" open>
+          <summary class="fold__head"><h3>Our Practices</h3><svg class="fold__chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul class="footer__list" role="list">
+            <li><a href="#practices">Order to Cash Service</a></li>
+            <li><a href="#practices">IT Product Development &amp; Maintenance</a></li>
+            <li><a href="#practices">Procure to Pay Service</a></li>
+            <li><a href="#practices">Record to Report Service</a></li>
+            <li><a href="#practices">Master Data and Category Management</a></li>
+            <li><a href="#practices">eCommerce Practice Management</a></li>
+            <li><a href="#practices">Spend Management</a></li>
+            <li><a href="#practices">Inventory Management</a></li>
+          </ul>
+        </details>
+      </nav>
+
+      <div class="footer__contact">
+        <div>
+          <h3>email</h3>
+          <a href="mailto:egcgshr@theegc.com">egcgshr@theegc.com</a>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <address>EGC Global Services India Pvt Ltd,<br>2nd Floor, THAPASYA,<br>INFOPARK PHASE 1, KAKKANAD,<br>KOCHI – 682042</address>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__brands">
+      <div class="container">
+        <div class="brands brands--marquee">
+          <p class="brands__label">EGC comprises of the following brands :</p>
+          <div class="marquee">
+            <div class="marquee__track">
+          <ul class="marquee__set" role="list">
+            <li class="marquee__item"><img src="assets/img/brand/ewie.png" alt="EWIE" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/psmi.png" alt="PSMi Production Services Management Inc" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/sourcepro.png" alt="SourcePRO Inc" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/gsss.png" alt="Gaging Solutions &amp; Services" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/egc-supply.png" alt="EGC Supply" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/egc-global-services.svg" alt="EGC Global Services" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/kromi.png" alt="Kromi — Tooling, One Step Ahead" loading="lazy"></li>
+          </ul>
+          <ul class="marquee__set" aria-hidden="true" role="list">
+            <li class="marquee__item"><img src="assets/img/brand/ewie.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/psmi.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/sourcepro.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/gsss.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/egc-supply.png" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/egc-global-services.svg" alt="" loading="lazy"></li>
+            <li class="marquee__item"><img src="assets/img/brand/kromi.png" alt="" loading="lazy"></li>
+          </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__legal">
+      <div class="container">
+        <p>Copyright 2026 EGC. All rights reserved.</p>
+        <p class="footer__credit">Designed &amp; Devoloped By: <a href="https://intersmart.in" target="_blank" rel="noopener"><img src="assets/img/brand/intersmart.svg" alt="iNTERSMART" width="117" height="19" loading="lazy"></a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

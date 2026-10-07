@@ -1,0 +1,21 @@
+{
+  "name": "egc-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css": "sass scss/main.scss assets/css/main.css --style=compressed --source-map",
+    "js": "esbuild src/main.js --bundle --minify --format=iife --outfile=assets/js/main.js",
+    "build": "npm run css && npm run js",
+    "serve": "node _src/serve.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "motion": "^14.0.0",
+    "sass": "^1.105.1"
+  }
+}

@@ -1,0 +1,211 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Premium button: a hover colour floods in from below through a rounded
+// "liquid" edge, a soft light sweeps across, the arrow slides out and back in,
+// and the button lifts with a tinted glow. transform/opacity only.
+.btn {
+  --btn-bg: #{$blue-600};
+  --btn-fg: #fff;
+  --btn-bd: #{$blue-600};
+  --btn-hover-bg: #{$navy-900};
+  --btn-hover-fg: #fff;
+  --btn-glow: #{rgba($blue-600, 0.55)};
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: space(3);
+  min-height: 48px;
+  padding: 0 space(6);
+  border: 1px solid var(--btn-bd);
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.4s ease 0.05s, border-color 0.4s ease, transform 0.5s $ease-out,
+    box-shadow 0.5s $ease-out;
+  @include focus-ring;
+
+  // colour flood
+  &::before {
+    content: "";
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    bottom: -2px;
+    z-index: -1;
+    height: 140%;
+    background: var(--btn-hover-bg);
+    border-radius: 50% 50% 0 0 / 38% 38% 0 0;
+    transform: translateY(102%);
+    transition: transform 0.6s $ease-out, border-radius 0.6s $ease-out;
+  }
+  // light sweep
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 40%;
+    background: linear-gradient(100deg, transparent, rgba(#fff, 0.35), transparent);
+    transform: translateX(-130%) skewX(-18deg);
+    pointer-events: none;
+  }
+
+  .arrow {
+    flex: none;
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      color: var(--btn-hover-fg);
+      border-color: var(--btn-hover-bg);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px -14px var(--btn-glow);
+      &::before {
+        transform: translateY(0);
+        border-radius: 0;
+      }
+      &::after {
+        animation: btn-sweep 0.9s $ease-out 0.1s;
+      }
+      .arrow {
+        animation: btn-arrow 0.6s $ease-out;
+      }
+    }
+  }
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+    transition-duration: 0.12s;
+  }
+
+  &--ghost {
+    --btn-bg: transparent;
+    --btn-fg: #{$navy-900};
+    --btn-bd: #{$navy-900};
+    --btn-hover-bg: #{$navy-900};
+    --btn-glow: #{rgba($navy-900, 0.5)};
+  }
+
+  &--light {
+    --btn-bg: #fff;
+    --btn-fg: #{$blue-600};
+    --btn-bd: #fff;
+    --btn-hover-bg: #{$navy-900};
+    --btn-glow: #{rgba($navy-900, 0.5)};
+  }
+
+  // gold buttons flood to brand blue
+  &--gold {
+    --btn-bg: #{$gold};
+    --btn-fg: #{$navy-900};
+    --btn-bd: #{$gold};
+    --btn-hover-bg: #{$blue-600};
+    --btn-glow: #{rgba($gold, 0.7)};
+  }
+
+  &--sm {
+    min-height: 44px;
+    padding: 0 space(5);
+  }
+
+  @include reduced-motion {
+    &::before,
+    &::after {
+      transition: none;
+      animation: none !important;
+    }
+    .arrow {
+      animation: none !important;
+    }
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@keyframes btn-sweep {
+  to {
+    transform: translateX(380%) skewX(-18deg);
+  }
+}
+
+// arrow exits right, re-enters from the left
+@keyframes btn-arrow {
+  45% {
+    transform: translateX(14px);
+    opacity: 0;
+  }
+  46% {
+    transform: translateX(-14px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  padding-block: space(1);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $navy-900;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: color $dur-fast ease, background-size $dur $ease-out;
+  @include focus-ring;
+
+  .arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform $dur $ease-out;
+  }
+  &:hover {
+    color: $blue-600;
+    .arrow {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid $navy-900;
+  border-radius: 999px;
+  color: $navy-900;
+  transition: background-color $dur-fast ease, color $dur-fast ease;
+  @include focus-ring;
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+  &:hover:not(:disabled) {
+    background: $navy-900;
+    color: #fff;
+  }
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}

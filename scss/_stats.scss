@@ -1,0 +1,87 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Hero statistics — a light glass bar anchored to the bottom of the hero
+.stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: $radius-lg;
+  @include glass-light(0.9);
+
+  @include up(lg) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: space(3);
+    padding: space(4) space(3);
+    @include up(sm) {
+      padding: space(5) space(4);
+    }
+
+    @include down(lg) {
+      &:nth-child(even) {
+        border-left: 1px solid $line;
+      }
+      &:nth-child(-n + 2) {
+        border-bottom: 1px solid $line;
+      }
+    }
+    @include up(lg) {
+      padding: space(5) space(5);
+      & + & {
+        border-left: 1px solid $line;
+      }
+    }
+  }
+
+  &__icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $blue-600;
+    color: #fff;
+    @include up(md) {
+      width: 52px;
+      height: 52px;
+    }
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__body {
+    display: grid;
+    min-width: 0;
+    margin: 0;
+  }
+  &__num {
+    font-family: $font-display;
+    font-size: fluid(24, 40);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: $navy-900;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  &__label {
+    font-size: 0.875rem;
+    color: $muted;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+}

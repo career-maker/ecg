@@ -1,0 +1,443 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Hero — cinematic, light.
+// Mobile/tablet: full-bleed photo band, then copy, offer card and stats in flow.
+// Desktop (lg+): the photo covers the whole hero; a white wash on the left and
+// bottom lets the navy headline sit directly on the picture and melts the hero
+// into the next section. No fixed heights, so nothing can leave a gap.
+.hero {
+  position: relative;
+  overflow: clip;
+  background: #fff;
+  isolation: isolate;
+
+  @include up(lg) {
+    display: flex;
+    min-height: clamp(700px, 100svh, 980px);
+  }
+  @include up(xl) {
+    min-height: clamp(720px, 100svh, 980px);
+  }
+
+  // ---- photo ----
+  &__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3.5;
+    background: $mist-2;
+
+    @include up(sm) {
+      aspect-ratio: 16 / 9;
+    }
+    @include up(md) {
+      aspect-ratio: 2 / 1;
+    }
+
+    // light wash: fades the photo into the page
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to top, #fff 0%, rgba(#fff, 0) 34%);
+    }
+
+    @include up(lg) {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      aspect-ratio: auto;
+      &::after {
+        // navy wash on the left for the white headline, white only behind the header
+        background:
+          linear-gradient(to right, rgba($navy-900, 0.94) 0%, rgba($navy-900, 0.82) 30%, rgba($navy-900, 0.38) 54%, rgba($navy-900, 0) 76%),
+          linear-gradient(to top, rgba($navy-900, 0.5) 0%, rgba($navy-900, 0) 36%);
+        @include up(xl) {
+          background:
+            linear-gradient(to right, rgba($navy-900, 0.94) 0%, rgba($navy-900, 0.82) 30%, rgba($navy-900, 0.38) 54%, rgba($navy-900, 0) 76%),
+            linear-gradient(to top, rgba($navy-900, 0.5) 0%, rgba($navy-900, 0) 36%);
+        }
+      }
+    }
+  }
+
+  &__layer {
+    position: absolute;
+    inset: -12px;
+    will-change: transform;
+  }
+
+  &__media img,
+  &__media video {
+    position: absolute;
+    inset: -6% 0;
+    width: 100%;
+    height: 112%;
+    max-width: none;
+    object-fit: cover;
+    object-position: 84% 50%;
+    will-change: transform;
+    @include up(lg) {
+      object-position: 72% 50%;
+    }
+  }
+
+  // ---- layout ----
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: fluid(32, 48);
+    align-content: start;
+    padding-block: fluid(24, 48) fluid(24, 40);
+
+    @include up(lg) {
+      flex: 1;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1fr) auto auto;
+      column-gap: space(5);
+      row-gap: fluid(32, 56);
+      align-content: stretch;
+      padding-block: calc(#{$header-h-sm} + #{fluid(32, 56)}) fluid(24, 40);
+    }
+    @include up(xl) {
+      padding-top: calc(#{$header-h} + #{fluid(32, 56)});
+    }
+  }
+
+  &__copy {
+    display: grid;
+    justify-items: start;
+    align-content: center;
+    gap: fluid(20, 32);
+    @include up(lg) {
+      grid-column: 1 / span 7;
+      grid-row: 1;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: fluid(38, 92);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: $navy-900;
+    max-width: 11em;
+    text-wrap: balance;
+    &.mark::after {
+      width: 0.13em;
+      height: 0.13em;
+      margin-left: 0.06em;
+    }
+  }
+
+  &__lede {
+    max-width: 44ch;
+    font-size: fluid(16, 20);
+    line-height: 1.6;
+    color: lighten($ink, 8%);
+    @include up(lg) {
+      max-width: 40ch;
+    }
+    @include up(xl) {
+      max-width: 44ch;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: space(4) space(6);
+  }
+
+  &__scroll {
+    display: none;
+    @include up(lg) {
+      display: inline-flex;
+      align-items: center;
+      gap: space(4);
+      padding-left: space(5);
+      border-left: 1px solid rgba(#fff, 0.45);
+      @include eyebrow;
+      font-size: 0.6875rem;
+      color: #fff;
+      @include focus-ring($gold);
+    }
+  }
+  &__scroll-icon {
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+    border: 1px solid rgba(#fff, 0.7);
+    border-radius: 50%;
+    transition: background-color $dur-fast ease, color $dur-fast ease, transform $dur $ease-out;
+  }
+  &__scroll:hover &__scroll-icon {
+    background: $gold;
+    border-color: $gold;
+    color: $navy-900;
+    transform: translateY(3px);
+  }
+}
+
+.btn--lg {
+  min-height: 56px;
+  padding: 0 space(7);
+}
+
+.clients {
+  display: flex;
+  align-items: center;
+  gap: space(4);
+
+  &__faces {
+    display: flex;
+    padding-left: space(3);
+    img {
+      width: 44px;
+      height: 44px;
+      margin-left: -12px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      object-fit: cover;
+      background: $mist-2;
+    }
+  }
+  &__text {
+    display: grid;
+    line-height: 1.2;
+    strong {
+      font-family: $font-display;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $blue-600;
+    }
+    span {
+      @include eyebrow;
+      font-size: 0.75rem;
+      color: $muted;
+    }
+  }
+}
+
+// Desktop: copy sits on the navy wash, so it flips to light colours, and the
+// video stops half-way down the stats bar (a white strip, not a negative margin).
+@include up(lg) {
+  .hero {
+    &::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      z-index: -1;
+      height: clamp(56px, 6vw, 80px);
+      background: #fff;
+    }
+    &__title {
+      color: #fff;
+      .w--accent {
+        color: #ffe01a;
+      }
+      &.mark::after {
+        background: $blue-600;
+      }
+    }
+    &__lede {
+      color: rgba(#fff, 0.92);
+    }
+    .clients__text strong {
+      color: #4d8dff;
+    }
+    .clients__text span {
+      color: rgba(#fff, 0.85);
+    }
+    .clients__faces img {
+      border-color: #fff;
+    }
+  }
+}
+
+// "what we offer" - a glass service bar: navy label cell + four icon cells that
+// fill with brand blue on hover. No cards, no thumbnails.
+.offer {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: $radius-lg * 1.5;
+  @include glass-light(0.88);
+
+  @include up(lg) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  @include up(xl) {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    padding: space(4) space(5);
+    @include eyebrow;
+    font-size: 0.75rem;
+    color: #fff;
+    background: $navy-900;
+    white-space: nowrap;
+    &::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-right: space(3);
+      background: linear-gradient(135deg, $gold 50%, #fff 50%);
+    }
+    @include up(xl) {
+      padding-inline: space(6);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @include up(xl) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    li {
+      border-top: 1px solid rgba($navy-800, 0.1);
+      @include up(md) {
+        &:nth-child(-n + 2) {
+          border-top: 0;
+        }
+        &:nth-child(even) {
+          border-left: 1px solid rgba($navy-800, 0.1);
+        }
+      }
+      @include up(xl) {
+        border-top: 0;
+        border-left: 1px solid rgba($navy-800, 0.1);
+        &:first-child {
+          border-left: 0;
+        }
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: space(3);
+    height: 100%;
+    min-height: 68px;
+    padding: space(3) space(5);
+    overflow: hidden;
+    isolation: isolate;
+    font-family: $font-display;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: $navy-900;
+    transition: color $dur ease;
+    @include focus-ring;
+
+    // blue wash rises from the bottom
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(160deg, $blue-600, $blue-700);
+      transform: translateY(101%);
+      transition: transform 0.5s $ease-out;
+    }
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+      &::before {
+        transform: none;
+      }
+      .offer__icon {
+        background: $gold;
+        color: $navy-900;
+        transform: scale(1.06);
+      }
+      .offer__arrow {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
+
+  &__icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: $blue-50;
+    color: $blue-600;
+    transition: background-color $dur ease, color $dur ease, transform $dur $ease-out;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__arrow {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity $dur ease, transform $dur $ease-out;
+    // always visible on touch, where there is no hover
+    @media (hover: none) {
+      opacity: 0.6;
+      transform: none;
+    }
+  }
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+// Initial states for the entrance sequence (JS + motion allowed only)
+.js:not(.reduce-motion) {
+  .hero [data-hero],
+  .hero [data-hero-media] {
+    opacity: 0;
+  }
+}
+
+// On the dark hero the blue button floods gold instead of navy, so the
+// hover stays visible against the navy wash.
+@include up(lg) {
+  .hero__actions .btn {
+    --btn-hover-bg: #{$gold};
+    --btn-hover-fg: #{$navy-900};
+    --btn-glow: #{rgba($gold, 0.6)};
+  }
+}

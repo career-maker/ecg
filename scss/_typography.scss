@@ -1,0 +1,95 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+h1, h2, h3, h4 {
+  font-family: $font-display;
+  color: $navy-900;
+  text-wrap: balance;
+}
+
+.display {
+  font-size: fluid(36, 72);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+.h2 {
+  font-size: fluid(30, 56);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.h3 {
+  font-size: fluid(18, 24);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  @include eyebrow;
+  display: inline-flex;
+  align-items: center;
+  gap: space(3);
+  color: $blue-600;
+  &::before {
+    content: "";
+    width: space(5);
+    height: 2px;
+    background: $yellow;
+  }
+}
+
+.lede {
+  font-size: fluid(16, 19);
+  line-height: 1.65;
+  color: $muted;
+  max-width: 60ch;
+}
+
+// brand full stop mark that follows every heading in the source design
+.mark::after {
+  content: "";
+  display: inline-block;
+  width: 0.16em;
+  height: 0.16em;
+  margin-left: 0.08em;
+  background: linear-gradient(135deg, $blue-600 50%, $yellow 50%);
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: space(5) space(7);
+  margin-bottom: fluid(24, 48);
+
+  &__text {
+    display: grid;
+    gap: space(4);
+    max-width: 720px;
+  }
+
+  &--wide &__text {
+    max-width: 720px;
+  }
+}
+
+// Word-by-word headline reveal (JS wraps each word)
+.w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.wi {
+  display: inline-block;
+}
+.js:not(.reduce-motion) [data-split] .wi {
+  opacity: 0;
+  transform: translateY(105%);
+}

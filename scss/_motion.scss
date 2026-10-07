@@ -1,0 +1,45 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Scroll-animation start states. Applied only when JS runs and motion is
+// allowed, so content is never hidden for no-JS or reduced-motion users.
+.js:not(.reduce-motion) {
+  [data-words] .wi {
+    transform: translateY(105%);
+  }
+
+  // eyebrow rule draws itself
+  .eyebrow::before {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.9s $ease-out 0.1s;
+  }
+  .eyebrow.is-in::before {
+    transform: none;
+  }
+
+  // images wipe open
+  .about__img,
+  .join__img,
+  .post__img {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+.header__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(to right, $blue-600, $yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.join__img img {
+  inset: -6% 0;
+  height: 112%;
+  will-change: transform;
+}
