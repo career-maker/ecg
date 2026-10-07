@@ -48,8 +48,10 @@ $mist: #f5f7fb;
 $mist-2: #eaeff7;
 
 // Typography
-$font-display: "Manrope", "Segoe UI", system-ui, sans-serif;
-$font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+// One family site-wide: Gothic A1, the typeface used on the EGC source site.
+$font-family: "Gothic A1", "Segoe UI", system-ui, sans-serif;
+$font-display: $font-family;
+$font-body: $font-family;
 
 // Layout
 $container: 1440px;
