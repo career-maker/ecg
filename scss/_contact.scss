@@ -1,24 +1,112 @@
 @use "tokens" as *;
 @use "mixins" as *;
 
-// Closing call-to-action: a cinematic navy-tinted photo panel
+// Closing call-to-action: navy panel with a photo cut to a custom shape that
+// overlaps its right edge, backed by a gold plate and a thin gold outline.
 .connect {
-  background: #fff;
   padding-bottom: fluid(40, 72);
 
   &__panel {
     position: relative;
-    overflow: hidden;
+    display: grid;
     isolation: isolate;
-    border-radius: $radius-lg * 1.5;
-    background: $navy-900;
+    border-radius: 36px;
     color: #fff;
+    background: linear-gradient(120deg, $navy-900 0%, #0a2a78 70%, $blue-700 100%);
+    @include up(lg) {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      align-items: center;
+      min-height: 440px;
+    }
   }
 
-  &__bg {
+  // lighter blue sliver along the left/bottom edge, as in the design
+  &__edge {
     position: absolute;
     inset: 0;
-    z-index: -2;
+    z-index: -1;
+    border-radius: inherit;
+    overflow: hidden;
+    pointer-events: none;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -4%;
+      top: 0;
+      width: 32%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba($blue-600, 0.9), transparent 70%);
+      clip-path: polygon(0 0, 55% 0, 0 40%);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60%;
+      height: 10%;
+      background: linear-gradient(to right, $blue-600, transparent);
+      clip-path: polygon(0 40%, 100% 100%, 0 100%);
+    }
+  }
+
+  &__inner {
+    display: grid;
+    justify-items: start;
+    gap: fluid(20, 28);
+    padding: fluid(28, 72) fluid(24, 64);
+    @include up(lg) {
+      padding-right: 0;
+      padding-block: fluid(48, 72);
+    }
+    .eyebrow {
+      color: $gold;
+    }
+  }
+
+  &__title {
+    max-width: 14em;
+    color: #fff;
+    font-size: fluid(28, 52);
+    &.mark::after {
+      background: linear-gradient(135deg, #fff 50%, $gold 50%);
+    }
+  }
+  &__accent,
+  .wi.connect__accent {
+    color: $gold;
+  }
+
+  // ---- shaped photo ----
+  &__visual {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    margin: 0 fluid(16, 24) fluid(16, 24);
+    @include up(lg) {
+      aspect-ratio: auto;
+      align-self: stretch;
+      // photo is allowed to poke past the panel on the right/top/bottom
+      margin: fluid(-24, -32) fluid(-32, -16) fluid(-24, -32) 0;
+    }
+  }
+
+  &__plate,
+  &__photo,
+  &__line {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__plate {
+    background: linear-gradient(160deg, $gold, #ffe27a);
+    clip-path: url(#connect-mask);
+    transform: translate(3%, -2%);
+  }
+
+  &__photo {
+    overflow: hidden;
+    clip-path: url(#connect-mask);
+    background: $navy-900;
     img {
       position: absolute;
       inset: -6% 0;
@@ -26,68 +114,21 @@
       height: 112%;
       max-width: none;
       object-fit: cover;
-      object-position: 60% 50%;
-      will-change: transform;
-    }
-    // brand-blue tint, strongest behind the text
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(100deg, rgba($navy-900, 0.97) 0%, rgba($navy-900, 0.88) 42%, rgba($navy-800, 0.45) 100%);
-      @include down(md) {
-        background: linear-gradient(to bottom, rgba($navy-900, 0.92), rgba($navy-900, 0.8));
-      }
+      object-position: 55% 50%;
     }
   }
 
-  &__rings {
-    position: absolute;
-    z-index: -1;
-    right: -12%;
-    top: 50%;
-    width: min(70vw, 640px);
-    translate: 0 -50%;
-    fill: none;
-    stroke: rgba(#fff, 0.18);
-    stroke-width: 1;
+  &__line {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
     pointer-events: none;
-    circle:nth-child(2) {
-      stroke: rgba($yellow, 0.55);
+    fill: none;
+    stroke: $gold;
+    stroke-width: 2px;
+    transform: translate(-1.5%, 1%);
+    path {
+      vector-effect: non-scaling-stroke;
     }
-  }
-  &__ring-dash {
-    stroke-dasharray: 2 10;
-    transform-origin: 300px 300px;
-    animation: ring-spin 80s linear infinite;
-    @include reduced-motion {
-      animation: none;
-    }
-  }
-
-  &__inner {
-    display: grid;
-    justify-items: start;
-    gap: fluid(20, 32);
-    padding: fluid(32, 96) fluid(24, 80);
-  }
-
-  &__title {
-    max-width: 16em;
-    color: #fff;
-    font-size: fluid(30, 60);
-    &.mark::after {
-      background: linear-gradient(135deg, #fff 50%, $yellow 50%);
-    }
-  }
-
-  .eyebrow {
-    color: $yellow;
-  }
-}
-
-@keyframes ring-spin {
-  to {
-    transform: rotate(360deg);
   }
 }
