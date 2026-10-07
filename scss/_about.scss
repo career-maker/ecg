@@ -19,15 +19,18 @@
     gap: fluid(20, 32);
   }
 
+  // Same type treatment as every other section title (.h2): one weight,
+  // same tracking and leading. Only the size steps down for the long sentence.
   &__title {
-    font-size: fluid(24, 44);
-    font-weight: 700;
-    line-height: 1.14;
+    font-size: fluid(28, 44);
+    font-weight: 800;
+    line-height: 1.12;
     letter-spacing: -0.03em;
     color: $navy-900;
     max-width: 20em;
+    text-wrap: balance;
     strong {
-      font-weight: 900;
+      font-weight: inherit;
     }
   }
 
